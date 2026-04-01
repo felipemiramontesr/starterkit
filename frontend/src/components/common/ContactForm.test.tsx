@@ -8,10 +8,10 @@ describe('ContactForm Direct CTA Static Model', () => {
     render(<ContactForm />);
     
     // Títulos correctos
-    expect(screen.getByText(/Línea Directa/i)).toBeInTheDocument();
+    expect(screen.getByText(/¿Quieres una página web así\?/i)).toBeInTheDocument();
     
-    // Localiza el nuevo botón ancla "Conectar WhatsApp"
-    const linkElement = screen.getByRole('link', { name: /Conectar WhatsApp/i });
+    // Localiza el nuevo botón ancla
+    const linkElement = screen.getByRole('link', { name: /Quiero mi propia Landing Page/i });
     
     // Confirma la URL generada globalmente
     expect(linkElement).toHaveAttribute('href', BUSINESS_CONFIG.whatsapp.getApiUrl());

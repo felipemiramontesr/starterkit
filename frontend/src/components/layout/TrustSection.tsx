@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactElement } from 'react';
-import { ShieldAlert, Fingerprint, Lock, ShieldCheck } from 'lucide-react';
+import { Hexagon, Triangle, Circle, Square } from 'lucide-react';
 
 /**
  * TrustSection Component.
@@ -17,17 +17,17 @@ export const TrustSection = (): ReactElement => {
   }, []);
 
   const trustItems = [
-    { name: 'Data Secured', icon: Lock },
-    { name: 'Verified Identity', icon: Fingerprint },
-    { name: 'Threat Blocked', icon: ShieldAlert },
-    { name: 'Compliance Ready', icon: ShieldCheck },
+    { name: 'Global Brand', icon: Hexagon },
+    { name: 'Tech Innovators', icon: Triangle },
+    { name: 'Future Corp', icon: Circle },
+    { name: 'Stellar Agency', icon: Square },
   ];
 
   return (
     <section id="trust" className="w-full py-20 bg-black text-gray-300 border-t border-gray-800 border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-sm font-semibold tracking-widest uppercase text-indigo-500 mb-8">
-          Confianza y Seguridad Grado Militar
+          Empresas que confían en tu visión
         </h2>
         
         <div 

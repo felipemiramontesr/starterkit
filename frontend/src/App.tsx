@@ -1,6 +1,7 @@
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/layout/Hero';
 import { TrustSection } from './components/layout/TrustSection';
+import { Features } from './components/layout/Features';
 import { ContactForm } from './components/common/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { SEO } from './components/common/SEO';
@@ -14,9 +15,9 @@ function App() {
       
       <div id="home">
         <Hero 
-          title="Starter Kit Pro"
-          subtitle="Arquitectura 'grado militar', código limpio y rendimiento extremo. Todo lo necesario para crear landing pages de conversión."
-          ctaText="Iniciar Operación"
+          title="[Gran Título Comercial Aquí]"
+          subtitle="Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Un diseño de alto rendimiento construido exclusivamente para captar la atención de tus prospectos."
+          ctaText="Ver Demostración en Vivo"
           onCtaClick={() => {
             window.open(BUSINESS_CONFIG.whatsapp.getApiUrl(), '_blank', 'noopener,noreferrer');
           }}
@@ -24,16 +25,18 @@ function App() {
       </div>
 
       <TrustSection />
+      
+      <Features />
 
       <section className="w-full py-20 bg-gray-900 border-b border-gray-800 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-gray-900 to-black pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-              Contacto Seguro
+              Contacto Operativo
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              Establece conexión directa a través de nuestro proxy de operaciones encriptadas.
+              ¿Listo para dar el siguiente paso comercial?
             </p>
           </div>
           <ContactForm />

@@ -6,11 +6,11 @@ import '@testing-library/jest-dom';
 describe('TrustSection Component', () => {
   it('renders title and trust items', () => {
     render(<TrustSection />);
-    expect(screen.getByText(/Confianza y Seguridad/i)).toBeInTheDocument();
+    expect(screen.getByText(/Empresas que confían/i)).toBeInTheDocument();
     
-    expect(screen.getByText('Data Secured')).toBeInTheDocument();
-    expect(screen.getByText('Verified Identity')).toBeInTheDocument();
-    expect(screen.getByText('Threat Blocked')).toBeInTheDocument();
+    expect(screen.getByText('Global Brand')).toBeInTheDocument();
+    expect(screen.getByText('Tech Innovators')).toBeInTheDocument();
+    expect(screen.getByText('Future Corp')).toBeInTheDocument();
   });
 
   it('triggers fade-in animation slightly after mount', () => {
