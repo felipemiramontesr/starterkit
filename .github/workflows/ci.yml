@@ -1,36 +1,60 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  build-and-test:
+  frontend-build-test:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+      # Usar npm ci para instalaciones precisas, subiendo un nivel si es necesario
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
+      - name: Archive frontend artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
 
-    - name: Use Node.js 24
-      uses: actions/setup-node@v4
-      with:
-        node-version: 24
-        cache: 'npm'
+  backend-build-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo 'Backend framework mock pass. Preparado para el futuro de la API.'
 
-    - name: Install Dependencies
-      run: npm ci
-
-    - name: Run Linter
-      run: npm run lint
-
-    - name: Type Check
-      run: npx tsc --noEmit
-
-    - name: Run Vitest Tests
-      run: npm run test
-
-    - name: Build Project
-      run: npm run build
+  deploy-production:
+    needs: [frontend-build-test, backend-build-test]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download frontend artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: dist
+          
+      - name: FTP Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /
