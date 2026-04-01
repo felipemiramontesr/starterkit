@@ -1,8 +1,5 @@
 name: CI/CD Pipeline
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   push:
     branches: [ main ]
@@ -16,8 +13,8 @@ jobs:
       run:
         working-directory: ./frontend
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 24.x
       # Ejecutar install en la raíz para resolver los Workspaces y omitir scripts locales como Husky.
@@ -27,7 +24,7 @@ jobs:
       - run: npm run test
       - run: npm run build
       - name: Archive frontend artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: frontend-dist
           path: frontend/dist
@@ -38,8 +35,8 @@ jobs:
       run:
         working-directory: ./backend
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 24.x
       - run: npm install --ignore-scripts
@@ -53,19 +50,21 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Download frontend artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: frontend-dist
           path: dist
           
-      - name: FTP Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /
+      - name: Instalar cliente LFTP (Nativo Linux)
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: FTP Despliegue Zero-NodeJS via LFTP
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.FTP_SERVER }}
+        run: |
+          lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -v -R ./dist/ / --parallel=10"
