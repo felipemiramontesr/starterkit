@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 describe('Navbar Component', () => {
   it('renders logo and navigation links', () => {
     render(<Navbar />);
-    expect(screen.getByText(/StarterPro/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tu Marca/i)).toBeInTheDocument();
     
     // Multiple links because desktop + possible hidden mobile
     const homeLinks = screen.getAllByText('Inicio');

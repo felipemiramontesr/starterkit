@@ -16,13 +16,13 @@ export const Footer = (): ReactElement => {
         
         <div className="flex items-center gap-2">
           <Shield className="w-6 h-6 text-indigo-500" />
-          <span className="font-bold text-xl text-white">StarterPro<span className="text-indigo-500">.</span></span>
+          <span className="font-bold text-xl text-white">Tu Marca<span className="text-indigo-500">.</span></span>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">
-          <a href="#privacy" className="hover:text-indigo-400 transition-colors">Privacy Policy</a>
-          <a href="#terms" className="hover:text-indigo-400 transition-colors">Terms of Service</a>
-          <span>&copy; {currentYear} All Rights Reserved.</span>
+          <a href="#privacy" className="hover:text-indigo-400 transition-colors">Política de Privacidad</a>
+          <a href="#terms" className="hover:text-indigo-400 transition-colors">Términos de Servicio</a>
+          <span>&copy; {currentYear} Todos los Derechos Reservados.</span>
         </div>
 
         <div className="flex items-center gap-4">

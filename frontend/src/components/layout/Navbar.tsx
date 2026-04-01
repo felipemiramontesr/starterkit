@@ -21,6 +21,7 @@ export const Navbar = (): ReactElement => {
 
   const navLinks = [
     { name: 'Inicio', href: '#home' },
+    { name: 'Servicios', href: '#servicios' },
     { name: 'Confianza', href: '#trust' },
     { name: 'Contacto', href: '#contact' },
   ];
@@ -37,7 +38,7 @@ export const Navbar = (): ReactElement => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
             <Shield className="w-8 h-8 text-indigo-500" />
-            <span className="font-bold text-2xl tracking-tight text-white">StarterPro<span className="text-indigo-500">.</span></span>
+            <span className="font-bold text-2xl tracking-tight text-white">Tu Marca<span className="text-indigo-500">.</span></span>
           </div>
 
           {/* Desktop Menu */}

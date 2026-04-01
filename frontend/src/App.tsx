@@ -15,7 +15,7 @@ function App() {
       
       <div id="home">
         <Hero 
-          title="[Gran Título Comercial Aquí]"
+          title="Tu Marca"
           subtitle="Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Un diseño de alto rendimiento construido exclusivamente para captar la atención de tus prospectos."
           ctaText="Ver Demostración en Vivo"
           onCtaClick={() => {

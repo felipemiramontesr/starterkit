@@ -18,8 +18,8 @@ interface SEOProps {
  * @returns {ReactElement}
  */
 export const SEO = ({
-  title = 'Starter Kit Pro | Arquitectura de Alta Conversión',
-  description = 'Una base técnica de grado militar optimizada para crear landing pages veloces y seguras en React y Vite.',
+  title = 'Tu Marca | Plantilla de Alta Conversión',
+  description = 'Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Diseño de alto rendimiento.',
   image = 'https://starterkit.felipemiramontesr.net/og-image.jpg',
   url = 'https://starterkit.felipemiramontesr.net',
 }: SEOProps): ReactElement => {

@@ -8,11 +8,11 @@ describe('Footer Component', () => {
     render(<Footer />);
     
     // Branding
-    expect(screen.getByText(/StarterPro/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tu Marca/i)).toBeInTheDocument();
     
     // Links
-    expect(screen.getByText('Privacy Policy')).toBeInTheDocument();
-    expect(screen.getByText('Terms of Service')).toBeInTheDocument();
+    expect(screen.getByText('Política de Privacidad')).toBeInTheDocument();
+    expect(screen.getByText('Términos de Servicio')).toBeInTheDocument();
     
     // Social labels
     expect(screen.getByLabelText('Website')).toBeInTheDocument();
