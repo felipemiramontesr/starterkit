@@ -4,6 +4,7 @@ import { TrustSection } from './components/layout/TrustSection';
 import { ContactForm } from './components/common/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { SEO } from './components/common/SEO';
+import { BUSINESS_CONFIG } from './config/business';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           subtitle="Arquitectura 'grado militar', código limpio y rendimiento extremo. Todo lo necesario para crear landing pages de conversión."
           ctaText="Iniciar Operación"
           onCtaClick={() => {
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            window.open(BUSINESS_CONFIG.whatsapp.getApiUrl(), '_blank', 'noopener,noreferrer');
           }}
         />
       </div>
@@ -35,7 +36,7 @@ function App() {
               Establece conexión directa a través de nuestro proxy de operaciones encriptadas.
             </p>
           </div>
-          <ContactForm submitUrl="https://api.webhooks.dev/submit" />
+          <ContactForm />
         </div>
       </section>
 
