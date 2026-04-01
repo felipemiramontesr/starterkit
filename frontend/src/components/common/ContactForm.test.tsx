@@ -1,22 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { ContactForm } from './ContactForm';
-import { BUSINESS_CONFIG } from '../../config/business';
 
-describe('ContactForm Direct CTA Static Model', () => {
-  it('Renders beautifully and points strictly to WhatsApp API with target _blank', () => {
+describe('ContactForm Multi-Field Architecture', () => {
+  it('Renders all form fields and submit button', () => {
     render(<ContactForm />);
     
     // Títulos correctos
     expect(screen.getByText(/¿Quieres una página web así\?/i)).toBeInTheDocument();
     
-    // Localiza el nuevo botón ancla
-    const linkElement = screen.getByRole('link', { name: /Quiero mi propia Landing Page/i });
+    // Inputs existentes
+    expect(screen.getByPlaceholderText(/Juan Pérez/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/juan@ejemplo.com/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/5512345678/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Me gustaría una landing page/i)).toBeInTheDocument();
     
-    // Confirma la URL generada globalmente
-    expect(linkElement).toHaveAttribute('href', BUSINESS_CONFIG.whatsapp.getApiUrl());
-    
-    // Confirma su comportamiento UX
-    expect(linkElement).toHaveAttribute('target', '_blank');
+    // Botón de envío
+    expect(screen.getByRole('button', { name: /Solicitar Presupuesto/i })).toBeInTheDocument();
   });
 });

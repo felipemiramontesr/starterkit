@@ -1,3 +1,5 @@
+import { useState, type ReactElement } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/layout/Hero';
 import { TrustSection } from './components/layout/TrustSection';
@@ -5,11 +7,14 @@ import { Features } from './components/layout/Features';
 import { ContactForm } from './components/common/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { SEO } from './components/common/SEO';
+import { WhatsAppFloating } from './components/common/WhatsAppFloating';
+import { CookieBanner } from './components/common/CookieBanner';
+import { PoliciesPage } from './pages/PoliciesPage';
 import { BUSINESS_CONFIG } from './config/business';
 
-function App() {
+const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
   return (
-    <main className="min-h-screen bg-black text-gray-200">
+    <>
       <SEO />
       <Navbar />
       
@@ -44,6 +49,21 @@ function App() {
       </section>
 
       <Footer />
+      <WhatsAppFloating isShifted={isShifted} />
+    </>
+  );
+};
+
+function App() {
+  const [isBannerVisible, setIsBannerVisible] = useState(false);
+
+  return (
+    <main className="min-h-screen bg-black text-gray-200">
+      <Routes>
+        <Route path="/" element={<LandingPage isShifted={isBannerVisible} />} />
+        <Route path="/politicas" element={<PoliciesPage />} />
+      </Routes>
+      <CookieBanner onVisibilityChange={setIsBannerVisible} />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import { type ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import { Shield, Globe, Mail, MessageCircle } from 'lucide-react';
 
 /**
@@ -20,8 +21,8 @@ export const Footer = (): ReactElement => {
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">
-          <a href="#privacy" className="hover:text-indigo-400 transition-colors">Política de Privacidad</a>
-          <a href="#terms" className="hover:text-indigo-400 transition-colors">Términos de Servicio</a>
+          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">Aviso de Privacidad</Link>
+          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">Términos de Servicio</Link>
           <span>&copy; {currentYear} Todos los Derechos Reservados.</span>
         </div>
 
