@@ -14,8 +14,10 @@ export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactEle
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed right-6 z-[90] w-16 h-16 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 transform hover:scale-110 active:scale-95 ${
-        isShifted ? 'bottom-32 md:bottom-28' : 'bottom-6'
+      className={`fixed z-[110] w-16 h-16 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-500 transform hover:scale-110 active:scale-95 ${
+        isShifted 
+          ? 'bottom-[200px] md:bottom-[160px] right-6 md:right-[40px]' 
+          : 'bottom-6 right-6'
       }`}
       aria-label="Chat on WhatsApp"
     >
