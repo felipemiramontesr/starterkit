@@ -7,15 +7,10 @@ interface CookieBannerProps {
 }
 
 export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const hasAccepted = localStorage.getItem('cookies-accepted');
-    if (!hasAccepted) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return !localStorage.getItem('cookies-accepted');
+  });
 
   useEffect(() => {
     onVisibilityChange(isVisible);
