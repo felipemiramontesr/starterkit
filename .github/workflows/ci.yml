@@ -35,7 +35,13 @@ jobs:
         working-directory: ./backend
     steps:
       - uses: actions/checkout@v4
-      - run: echo 'Backend framework mock pass. Preparado para el futuro de la API.'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+      - run: npm install
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run build
 
   deploy-production:
     needs: [frontend-build-test, backend-build-test]
