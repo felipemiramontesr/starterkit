@@ -1,0 +1,9 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./src/components/layout/Hero.tsx"
+  ],
+  "out": "docs",
+  "name": "Starter Kit Pro - Documentation",
+  "includeVersion": true
+}
