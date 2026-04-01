@@ -48,4 +48,30 @@ describe('CookieBanner Component', () => {
     
     vi.useRealTimers();
   });
+
+  it('contains a "Rechazar" button that hides the banner', async () => {
+    vi.useFakeTimers();
+    const onVisibilityChange = vi.fn();
+    render(
+      <MemoryRouter>
+        <CookieBanner onVisibilityChange={onVisibilityChange} />
+      </MemoryRouter>
+    );
+
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
+
+    const rejectButton = screen.getByRole('button', { name: /Rechazar/i });
+    expect(rejectButton).toBeInTheDocument();
+    
+    act(() => {
+      rejectButton.click();
+    });
+
+    expect(screen.queryByText(/Privacidad y Cookies/i)).not.toBeInTheDocument();
+    expect(onVisibilityChange).toHaveBeenLastCalledWith(false);
+    
+    vi.useRealTimers();
+  });
 });
