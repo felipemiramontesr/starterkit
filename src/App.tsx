@@ -3,10 +3,12 @@ import { Hero } from './components/layout/Hero';
 import { TrustSection } from './components/layout/TrustSection';
 import { ContactForm } from './components/common/ContactForm';
 import { Footer } from './components/layout/Footer';
+import { SEO } from './components/common/SEO';
 
 function App() {
   return (
     <main className="min-h-screen bg-black text-gray-200">
+      <SEO />
       <Navbar />
       
       <div id="home">
