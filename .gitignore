@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Monorepo Backend Logs
+backend/data/
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

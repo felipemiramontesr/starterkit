@@ -1,6 +1,9 @@
 import express, { type Request, type Response } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import fs from 'fs/promises';
+import path from 'path';
+import { z } from 'zod';
 
 export const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,12 +26,6 @@ interface HealthCheckResponse {
 
 /**
  * Health Check API Endpoint.
- * Ingesta una URL destino ('targetUrl') usando Node.js 18+ nativo Fetch.
- * Mide la velocidad de ida/vuelta y el escudo criptográfico (SSL).
- *
- * @param {Request} req
- * @param {Response} res
- * @returns {Promise<Response>}
  */
 app.post('/api/health-check', async (req: Request, res: Response): Promise<Response> => {
   const body = req.body as HealthCheckBody;
@@ -41,12 +38,8 @@ app.post('/api/health-check', async (req: Request, res: Response): Promise<Respo
   const startTime = performance.now();
   
   try {
-    // Si la máquina tiene Node < 18 y carece de fetch esto puede reventar,
-    // pero nuestro GitHub Action estipuló Setup Node v24 explícitamente.
     const response = await fetch(url, { method: 'HEAD' });
     const endTime = performance.now();
-    
-    // Asumimos SSL limpio si es HTTPS y no arroja error CERT_INVALID interno.
     const isSslActive = new URL(url).protocol === 'https:';
 
     const payload: HealthCheckResponse = {
@@ -69,10 +62,65 @@ app.post('/api/health-check', async (req: Request, res: Response): Promise<Respo
   }
 });
 
+// ========================
+// E2E Contact Logic
+// ========================
+
+const contactSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  subject: z.string().min(5),
+  message: z.string().min(10)
+});
+
+const DATA_DIR = path.join(process.cwd(), 'data');
+const LEADS_FILE = path.join(DATA_DIR, 'leads.json');
+
+app.post('/api/contact', async (req: Request, res: Response): Promise<Response> => {
+  try {
+    // 1. Zod Zero Trust Validation
+    const payload = contactSchema.parse(req.body);
+    const newLead = { ...payload, timestamp: new Date().toISOString() };
+
+    // 2. Persistencia Segura (I/O)
+    try { await fs.mkdir(DATA_DIR, { recursive: true }); } catch { /* skip */ }
+    
+    let currentLeads = [];
+    try {
+      const fileData = await fs.readFile(LEADS_FILE, 'utf-8');
+      if (fileData) currentLeads = JSON.parse(fileData);
+    } catch { /* skip */ }
+    
+    currentLeads.push(newLead);
+    await fs.writeFile(LEADS_FILE, JSON.stringify(currentLeads, null, 2), 'utf-8');
+
+    // 3. Webhook Alert via Native Fetch (Fire & Forget logic)
+    const webhookUrl = process.env.WEBHOOK_URL;
+    if (webhookUrl && webhookUrl.startsWith('http')) {
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: `🚀 **Nuevo Lead** en StarterKit\n> **${payload.name}** as ${payload.email}\n> Asunto: ${payload.subject}`
+        })
+      }).catch(err => console.error('Webhook notification falló silenciamente: ', err));
+    } else {
+      console.log('Ningun WEBHOOK_URL fue provisto. Lead capturado y aislado en memoria disco.');
+    }
+
+    return res.status(200).json({ success: true, message: 'Operación confirmada' }) as unknown as Response;
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({ success: false, error: error.issues }) as unknown as Response;
+    }
+    return res.status(500).json({ success: false, error: 'Internal Server Error' }) as unknown as Response;
+  }
+});
+
 // Ignite Server
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, (): void => {
     console.log(`\n🛡️ [Sentinel Backend] Operando en puerto ${PORT}`);
-    console.log(`🛡️ Cabeceras dinámicas x-powered-by eliminadas. Strict-Transport-Security inyectado vía Helmet.\n`);
+    console.log(`🛡️ Persistencia activa. Cabeceras estrictas. Vite proxy linkable.`);
   });
 }
