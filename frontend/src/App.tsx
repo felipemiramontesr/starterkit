@@ -24,9 +24,9 @@ function App() {
         />
       </div>
 
-      <TrustSection />
-      
       <Features />
+
+      <TrustSection />
 
       <section className="w-full py-20 bg-gray-900 border-b border-gray-800 relative">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-gray-900 to-black pointer-events-none" />

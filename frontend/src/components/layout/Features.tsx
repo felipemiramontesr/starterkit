@@ -21,8 +21,9 @@ export const Features = (): ReactElement => {
   ];
 
   return (
-    <section className="w-full py-24 bg-gray-900 border-b border-gray-800" id="servicios">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-28 relative bg-gray-900 border-b border-gray-800 scroll-mt-20 shadow-2xl" id="servicios">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-gray-900 to-black pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
          <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               Nuestros Servicios
