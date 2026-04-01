@@ -17,8 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24.x
-      # Usar npm ci para instalaciones precisas, subiendo un nivel si es necesario
-      - run: npm install
+      # Ejecutar install en la raíz para resolver los Workspaces y omitir scripts locales como Husky.
+      - run: npm install --ignore-scripts
+        working-directory: .
       - run: npm run lint
       - run: npm run test
       - run: npm run build
@@ -38,7 +39,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24.x
-      - run: npm install
+      - run: npm install --ignore-scripts
+        working-directory: .
       - run: npm run lint
       - run: npm run test
       - run: npm run build

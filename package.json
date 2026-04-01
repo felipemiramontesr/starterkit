@@ -2,7 +2,7 @@
   "name": "starterkit-monorepo",
   "private": true,
   "type": "module",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "workspaces": [
     "frontend",
     "backend"
