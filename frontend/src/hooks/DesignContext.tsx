@@ -3,7 +3,7 @@ import { DesignContext, PALETTES, type Palette, type BgType } from './useDesignS
 
 /**
  * DesignProvider - Professional Theme Context Provider.
- * This file ONLY exports a component to satisfy Vite's Fast Refresh rules.
+ * Manages global CSS variables for dynamic themes across the application.
  */
 export const DesignProvider = ({ children }: { children: ReactNode }) => {
   const [palette, setPalette] = useState<Palette>(() => {
@@ -18,10 +18,14 @@ export const DesignProvider = ({ children }: { children: ReactNode }) => {
     const root = document.documentElement;
     const colors = PALETTES[palette];
 
+    // Inject CSS variables for the global design system
     root.style.setProperty('--primary', colors.primary);
     root.style.setProperty('--primary-hover', colors.primaryHover);
     root.style.setProperty('--accent', colors.accent);
     root.style.setProperty('--bg-primary', colors.bgPrimary);
+    root.style.setProperty('--bg-secondary', colors.bgSecondary);
+    root.style.setProperty('--border-primary', colors.border);
+    root.style.setProperty('--primary-shadow', colors.shadow);
 
     localStorage.setItem('design-palette', palette);
     localStorage.setItem('design-bg-type', bgType);

@@ -25,7 +25,7 @@ export const Features = (): ReactElement => {
 
   return (
     <section className="w-full py-28 relative bg-gray-900 border-b border-gray-800 scroll-mt-20 shadow-2xl" id="servicios">
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/10 via-gray-900 to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/10 via-[var(--bg-primary)] to-black pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -40,8 +40,8 @@ export const Features = (): ReactElement => {
               const Icon = feature.icon;
               return (
                 <div key={i} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 p-8 rounded-2xl hover:bg-gray-800 transition-colors group">
-                  <div className="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7 text-indigo-400" />
+                  <div className="w-14 h-14 bg-[var(--primary)]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <Icon className="w-7 h-7 text-[var(--primary)]" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
                   <p className="text-gray-400 leading-relaxed">{feature.description}</p>

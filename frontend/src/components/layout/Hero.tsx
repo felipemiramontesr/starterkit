@@ -63,7 +63,7 @@ export const Hero = ({
         </p>
         <button
           onClick={onCtaClick}
-          className="px-8 py-4 text-lg font-semibold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[var(--primary)]/20"
+          className="px-8 py-4 text-lg font-semibold bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[var(--primary-shadow)]"
         >
           {ctaText}
         </button>

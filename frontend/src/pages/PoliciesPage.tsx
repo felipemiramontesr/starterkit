@@ -13,7 +13,7 @@ export const PoliciesPage = (): ReactElement => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black text-gray-200 selection:bg-indigo-500/30">
+    <main className="min-h-screen bg-[var(--bg-primary)] text-gray-200 selection:bg-[var(--primary)]/30">
       <SEO 
         title={`${t('footer.privacy')} | LFPDPPP`} 
         description={t('cookies.text')}
@@ -22,7 +22,7 @@ export const PoliciesPage = (): ReactElement => {
       {/* Header / Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-indigo-400 hover:text-white transition-colors group">
+          <Link to="/" className="flex items-center gap-2 text-[var(--accent)] hover:text-white transition-colors group">
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             <span className="font-semibold">{t('policies.back')}</span>
           </Link>
@@ -86,7 +86,7 @@ export const PoliciesPage = (): ReactElement => {
         </section>
 
         <div className="mt-20 pt-10 border-t border-gray-800 text-center">
-          <Link to="/" className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95">
+          <Link to="/" className="inline-flex items-center justify-center px-8 py-4 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold rounded-xl transition-all shadow-lg shadow-[var(--primary-shadow)] active:scale-95">
             {t('policies.back')}
           </Link>
         </div>

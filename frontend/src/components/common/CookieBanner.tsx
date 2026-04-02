@@ -29,21 +29,21 @@ export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactEl
     <div className="fixed bottom-0 left-0 right-0 z-[100] px-4 md:px-[40px] pb-4 animate-fade-in-up">
       <div className="w-full bg-gray-900/90 backdrop-blur-xl border border-gray-800 p-6 rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4 text-left">
-          <div className="bg-indigo-500/20 p-3 rounded-full shrink-0">
-            <Cookie className="w-6 h-6 text-indigo-400" />
+          <div className="bg-[var(--primary)]/20 p-3 rounded-full shrink-0">
+            <Cookie className="w-6 h-6 text-[var(--primary)]" />
           </div>
           <div>
             <h4 className="text-white font-bold text-lg">{t('cookies.title')}</h4>
             <p className="text-gray-400 text-sm leading-relaxed md:whitespace-nowrap">
               {t('cookies.text')}{' '}
-              <Link to="/politicas" className="text-indigo-400 hover:underline">{t('cookies.link')}</Link>.
+              <Link to="/politicas" className="text-[var(--primary)] hover:underline">{t('cookies.link')}</Link>.
             </p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full md:w-auto shrink-0">
           <button
             onClick={handleAccept}
-            className="flex-1 md:flex-none px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95"
+            className="flex-1 md:flex-none px-8 py-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold rounded-xl transition-all shadow-lg shadow-[var(--primary-shadow)] active:scale-95"
           >
             {t('cookies.accept')}
           </button>

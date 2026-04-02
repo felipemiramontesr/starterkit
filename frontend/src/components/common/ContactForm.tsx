@@ -36,7 +36,7 @@ export const ContactForm = (): ReactElement => {
 
   return (
     <div className="w-full max-w-5xl mx-auto p-6 md:p-8 rounded-2xl bg-gray-900/60 backdrop-blur-xl border border-gray-800 shadow-2xl relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-indigo-700" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)]" />
       
       <div className="text-center mb-4">
         <h3 className="text-3xl font-extrabold text-white mb-4">{t('contact.form_title')}</h3>
@@ -108,7 +108,7 @@ export const ContactForm = (): ReactElement => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center gap-3 px-8 py-3.5 text-lg font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] active:scale-95 disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-3 px-8 py-3.5 text-lg font-bold bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white rounded-xl shadow-[0_0_20px_var(--primary-shadow)] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_var(--primary-shadow)] active:scale-95 disabled:opacity-50"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">{t('contact.submitting')}</span>

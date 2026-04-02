@@ -18,23 +18,23 @@ export const Footer = (): ReactElement => {
         
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-2">
-            <Shield className="w-6 h-6 text-indigo-500" />
-            <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
+            <Shield className="w-6 h-6 text-[var(--primary)]" />
+            <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-[var(--primary)]">.</span></span>
           </div>
           <a 
             href={BUSINESS_CONFIG.location.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-indigo-400/80 hover:text-indigo-300 transition-all group/address"
+            className="flex items-center gap-2 text-sm text-[var(--accent)]/80 hover:text-[var(--primary-hover)] transition-all group/address"
           >
-            <MapPin className="w-4 h-4 text-indigo-500 group-hover/address:scale-110 transition-transform" />
-            <span className="border-b border-transparent group-hover/address:border-indigo-400/50">{t('footer.address')}</span>
+            <MapPin className="w-4 h-4 text-[var(--primary)] group-hover/address:scale-110 transition-transform" />
+            <span className="border-b border-transparent group-hover/address:border-[var(--primary)]/50">{t('footer.address')}</span>
           </a>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">
-          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">{t('footer.privacy')}</Link>
-          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">{t('footer.terms')}</Link>
+          <Link to="/politicas" className="hover:text-[var(--primary)] transition-colors">{t('footer.privacy')}</Link>
+          <Link to="/politicas" className="hover:text-[var(--primary)] transition-colors">{t('footer.terms')}</Link>
           <span>&copy; {currentYear} {t('footer.rights')}</span>
         </div>
 

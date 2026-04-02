@@ -45,8 +45,8 @@ export const Navbar = (): ReactElement => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-            <Shield className="w-8 h-8 text-indigo-500" />
-            <span className="font-bold text-2xl tracking-tight text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
+            <Shield className="w-8 h-8 text-[var(--primary)]" />
+            <span className="font-bold text-2xl tracking-tight text-white">{t('hero.title')}<span className="text-[var(--primary)]">.</span></span>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -68,7 +68,7 @@ export const Navbar = (): ReactElement => {
               onClick={toggleLanguage}
               className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-800 bg-gray-900/50 hover:bg-gray-800 transition-all text-xs font-bold text-gray-300 hover:text-white"
             >
-              <Globe className="w-3.5 h-3.5 text-indigo-500" />
+              <Globe className="w-3.5 h-3.5 text-[var(--primary)]" />
               <span>{currentLang === 'es' ? 'EN' : 'ES'}</span>
             </button>
           </div>
@@ -84,7 +84,7 @@ export const Navbar = (): ReactElement => {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md"
+              className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--primary)] p-2 rounded-md"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (

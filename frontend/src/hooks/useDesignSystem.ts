@@ -8,6 +8,9 @@ export interface PaletteColors {
   primaryHover: string;
   accent: string;
   bgPrimary: string;
+  bgSecondary: string;
+  border: string;
+  shadow: string;
 }
 
 export const PALETTES: Record<Palette, PaletteColors> = {
@@ -16,30 +19,45 @@ export const PALETTES: Record<Palette, PaletteColors> = {
     primaryHover: '#6366f1',
     accent: '#818cf8',
     bgPrimary: '#030712',
+    bgSecondary: '#111827',
+    border: '#1f2937',
+    shadow: 'rgba(79, 70, 229, 0.2)',
   },
   emerald: {
     primary: '#10b981',
     primaryHover: '#34d399',
     accent: '#6ee7b7',
-    bgPrimary: '#000000',
+    bgPrimary: '#022c22', // Deeper emerald dark
+    bgSecondary: '#064e3b',
+    border: '#065f46',
+    shadow: 'rgba(16, 185, 129, 0.2)',
   },
   amber: {
     primary: '#f59e0b',
     primaryHover: '#fbbf24',
     accent: '#fcd34d',
-    bgPrimary: '#0c0a09',
+    bgPrimary: '#1c1917', // Stone dark with amber hint
+    bgSecondary: '#292524',
+    border: '#44403c',
+    shadow: 'rgba(245, 158, 11, 0.2)',
   },
   crimson: {
     primary: '#e11d48',
     primaryHover: '#fb7185',
     accent: '#fda4af',
-    bgPrimary: '#09090b',
+    bgPrimary: '#18181b', // Zinc dark
+    bgSecondary: '#27272a',
+    border: '#3f3f46',
+    shadow: 'rgba(225, 29, 72, 0.2)',
   },
   slate: {
-    primary: '#71717a',
-    primaryHover: '#a1a1aa',
-    accent: '#d4d4d8',
-    bgPrimary: '#000000',
+    primary: '#94a3b8',
+    primaryHover: '#cbd5e1',
+    accent: '#f1f5f9',
+    bgPrimary: '#020617', // Midnight slate
+    bgSecondary: '#0f172a',
+    border: '#1e293b',
+    shadow: 'rgba(148, 163, 184, 0.1)',
   },
 };
 
@@ -55,10 +73,6 @@ export interface DesignContextType {
 
 export const DesignContext = createContext<DesignContextType | undefined>(undefined);
 
-/**
- * Hook for using the design system.
- * This is exported from a non-JSX file to satisfy Vite's Fast Refresh rules.
- */
 export const useDesignSystem = () => {
   const context = useContext(DesignContext);
   if (!context) {

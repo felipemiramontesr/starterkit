@@ -10,7 +10,23 @@
   --color-primary-hover: var(--primary-hover, #6366f1);
   --color-accent: var(--accent, #818cf8);
   --color-bg-primary: var(--bg-primary, #030712);
+}
 
+:root {
+  /* Dynamic Design Tokens - Injected via DesignProvider */
+  --primary: #4f46e5;
+  --primary-hover: #6366f1;
+  --accent: #818cf8;
+  --bg-primary: #030712;
+  --bg-secondary: #111827;
+  --border-primary: #1f2937;
+  --primary-shadow: rgba(79, 70, 229, 0.2);
+  
+  /* Layout constraints */
+  --navbar-height: 80px;
+}
+
+@layer base {
   @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
