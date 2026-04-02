@@ -32,10 +32,10 @@ export const ContactForm = (): ReactElement => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-8 md:p-10 rounded-2xl bg-gray-900/60 backdrop-blur-xl border border-gray-800 shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-5xl mx-auto p-6 md:p-8 rounded-2xl bg-gray-900/60 backdrop-blur-xl border border-gray-800 shadow-2xl relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-indigo-700" />
       
-      <div className="text-center mb-6">
+      <div className="text-center mb-4">
         <h3 className="text-3xl font-extrabold text-white mb-4">¿Quieres una página web así?</h3>
         <p className="text-gray-400 text-lg max-w-lg mx-auto font-light leading-relaxed">
           Completa los campos a continuación para iniciar la construcción de tu imperio digital vía WhatsApp.
@@ -52,7 +52,7 @@ export const ContactForm = (): ReactElement => {
               <input
                 {...register('name')}
                 placeholder="Juan Pérez"
-                className="w-full pl-12 pr-4 py-3 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
+                className="w-full pl-12 pr-4 py-2.5 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
               />
             </div>
             {errors.name && <p className="text-red-500 text-xs ml-1">{errors.name.message}</p>}
@@ -66,7 +66,7 @@ export const ContactForm = (): ReactElement => {
               <input
                 {...register('email')}
                 placeholder="juan@ejemplo.com"
-                className="w-full pl-12 pr-4 py-3 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
+                className="w-full pl-12 pr-4 py-2.5 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
               />
             </div>
             {errors.email && <p className="text-red-500 text-xs ml-1">{errors.email.message}</p>}
@@ -105,7 +105,7 @@ export const ContactForm = (): ReactElement => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center gap-3 px-8 py-4 text-lg font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] active:scale-95 disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-3 px-8 py-3.5 text-lg font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] active:scale-95 disabled:opacity-50"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">Enviando...</span>
