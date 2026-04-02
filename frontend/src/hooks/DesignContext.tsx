@@ -10,7 +10,7 @@ export const DesignProvider = ({ children }: { children: ReactNode }) => {
     return (localStorage.getItem('design-palette') as Palette) || 'indigo';
   });
   const [bgType, setBgType] = useState<BgType>(() => {
-    return (localStorage.getItem('design-bg-type') as BgType) || 'gradient';
+    return (localStorage.getItem('design-bg-type') as BgType) || 'image';
   });
   const [isPanelOpen, setIsPanelOpen] = useState(true);
 
