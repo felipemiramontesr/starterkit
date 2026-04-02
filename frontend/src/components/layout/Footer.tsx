@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Globe, Mail, MessageCircle } from 'lucide-react';
+import { Shield, Globe, Mail, MessageCircle, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 /**
@@ -13,11 +13,17 @@ export const Footer = (): ReactElement => {
 
   return (
     <footer className="w-full bg-black border-t border-gray-900 py-12 px-4 text-gray-400">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         
-        <div className="flex items-center gap-2">
-          <Shield className="w-6 h-6 text-indigo-500" />
-          <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
+        <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex items-center gap-2">
+            <Shield className="w-6 h-6 text-indigo-500" />
+            <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-300 transition-colors">
+            <MapPin className="w-4 h-4 text-indigo-500/70" />
+            <span>{t('footer.address')}</span>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">

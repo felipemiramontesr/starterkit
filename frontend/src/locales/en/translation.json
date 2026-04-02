@@ -69,7 +69,8 @@
   "footer": {
     "privacy": "Privacy Notice",
     "terms": "Terms of Service",
-    "rights": "All Rights Reserved."
+    "rights": "All Rights Reserved.",
+    "address": "Your Company Address here"
   },
   "whatsapp": {
     "help": "How can we help?",
