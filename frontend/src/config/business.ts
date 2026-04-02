@@ -19,5 +19,11 @@ export const BUSINESS_CONFIG = {
       const message = customMessage || this.defaultMessage;
       return `https://wa.me/${this.number}?text=${encodeURIComponent(message)}`;
     }
+  },
+
+  // Ubicación Física
+  location: {
+    address: 'Guadalupe, Zacatecas, México',
+    mapsUrl: 'https://maps.google.com/?q=Guadalupe,Zacatecas,México'
   }
 };

@@ -2,6 +2,7 @@ import { type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Globe, Mail, MessageCircle, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { BUSINESS_CONFIG } from '../../config/business';
 
 /**
  * Footer Component.
@@ -20,10 +21,15 @@ export const Footer = (): ReactElement => {
             <Shield className="w-6 h-6 text-indigo-500" />
             <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-300 transition-colors">
-            <MapPin className="w-4 h-4 text-indigo-500/70" />
-            <span>{t('footer.address')}</span>
-          </div>
+          <a 
+            href={BUSINESS_CONFIG.location.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-indigo-400/80 hover:text-indigo-300 transition-all group/address"
+          >
+            <MapPin className="w-4 h-4 text-indigo-500 group-hover/address:scale-110 transition-transform" />
+            <span className="border-b border-transparent group-hover/address:border-indigo-400/50">{t('footer.address')}</span>
+          </a>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">
