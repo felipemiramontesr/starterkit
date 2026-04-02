@@ -33,10 +33,13 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
 
       <TrustSection />
 
-      <section className="w-full py-20 bg-gray-900 border-b border-gray-800 relative">
+      <section 
+        id="contact" 
+        className="w-full py-12 md:py-16 bg-gray-900 border-b border-gray-800 relative scroll-mt-24"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-gray-900 to-black pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-12 animate-fade-in-up">
+          <div className="text-center mb-8 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               Contacto Operativo
             </h2>
