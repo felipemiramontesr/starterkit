@@ -10,7 +10,7 @@
   "hero": {
     "title": "Tu Marca",
     "subtitle": "Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Un diseño de alto rendimiento construido exclusivamente para captar la atención de tus prospectos.",
-    "cta": "Ver Demostración en Vivo"
+    "cta": "Iniciar Comunicación"
   },
   "features": {
     "title": "Infraestructura de Alto Vuelo",
@@ -41,7 +41,7 @@
     "section_title": "Contacto Operativo",
     "section_subtitle": "¿Listo para dar el siguiente paso comercial?",
     "form_title": "¿Quieres una página web así?",
-    "form_subtitle": "Completa los campos a continuación para iniciar la construcción de tu imperio digital vía WhatsApp.",
+    "form_subtitle": "Completa los campos a continuación para iniciar la construcción de tu imperio digital.",
     "name_label": "Nombre Completo",
     "name_placeholder": "Juan Pérez",
     "email_label": "Correo Electrónico",
@@ -50,7 +50,7 @@
     "phone_placeholder": "5512345678",
     "message_label": "Cuéntanos sobre tu proyecto",
     "message_placeholder": "Me gustaría una landing page para mi negocio de...",
-    "submit": "Solicitar Presupuesto vía WhatsApp",
+    "submit": "Enviar Mensaje",
     "submitting": "Enviando...",
     "errors": {
       "name": "El nombre debe tener al menos 3 caracteres",

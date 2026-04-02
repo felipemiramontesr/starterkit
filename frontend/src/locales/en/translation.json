@@ -10,7 +10,7 @@
   "hero": {
     "title": "Your Brand",
     "subtitle": "Imagine your product or service described with persuasive copywriting right in this spot. A high-performance design built exclusively to capture your prospects' attention.",
-    "cta": "See Live Demo"
+    "cta": "Start Communication"
   },
   "features": {
     "title": "High-Performance Infrastructure",
@@ -41,7 +41,7 @@
     "section_title": "Operational Contact",
     "section_subtitle": "Ready to take the next commercial step?",
     "form_title": "Want a website like this?",
-    "form_subtitle": "Fill out the fields below to start building your digital empire via WhatsApp.",
+    "form_subtitle": "Fill out the fields below to start building your digital empire.",
     "name_label": "Full Name",
     "name_placeholder": "John Doe",
     "email_label": "Email Address",
@@ -50,7 +50,7 @@
     "phone_placeholder": "5512345678",
     "message_label": "Tell us about your project",
     "message_placeholder": "I would like a landing page for my business in...",
-    "submit": "Request Quote via WhatsApp",
+    "submit": "Send Message",
     "submitting": "Sending...",
     "errors": {
       "name": "Name must be at least 3 characters",
