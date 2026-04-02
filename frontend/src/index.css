@@ -5,6 +5,12 @@
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
+  /* Colores Dinámicos (Design Engine) */
+  --color-primary: var(--primary, #4f46e5);
+  --color-primary-hover: var(--primary-hover, #6366f1);
+  --color-accent: var(--accent, #818cf8);
+  --color-bg-primary: var(--bg-primary, #030712);
+
   @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -17,8 +23,16 @@
 
 @layer base {
   html, body {
-    @apply antialiased text-gray-900 bg-white;
+    @apply antialiased text-gray-900 bg-black;
     margin: 0;
     padding: 0;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+
+  /* Transición global para colores de tema */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
   }
 }

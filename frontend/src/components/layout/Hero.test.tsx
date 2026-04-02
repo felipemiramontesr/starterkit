@@ -3,6 +3,12 @@ import { describe, it, expect, vi } from 'vitest';
 import Hero from './Hero';
 import userEvent from '@testing-library/user-event';
 
+vi.mock('../../hooks/useDesignSystem', () => ({
+  useDesignSystem: () => ({
+    bgType: 'gradient',
+  }),
+}));
+
 describe('Hero Component', () => {
   it('renders correctly and displays the main text', () => {
     const testTitle = 'Prueba Starter Kit Pro';

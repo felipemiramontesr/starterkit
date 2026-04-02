@@ -10,8 +10,10 @@ import { Footer } from './components/layout/Footer';
 import { SEO } from './components/common/SEO';
 import { WhatsAppFloating } from './components/common/WhatsAppFloating';
 import { CookieBanner } from './components/common/CookieBanner';
+import { DesignPanel } from './components/common/DesignPanel';
 import { PoliciesPage } from './pages/PoliciesPage';
 import { BUSINESS_CONFIG } from './config/business';
+import { DesignProvider } from './hooks/DesignContext';
 
 const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
   const { t } = useTranslation();
@@ -38,9 +40,9 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
 
       <section 
         id="contact" 
-        className="w-full py-8 md:py-10 bg-gray-900 border-b border-gray-800 relative scroll-mt-24"
+        className="w-full py-8 md:py-10 bg-[var(--bg-primary)] border-b border-gray-800 relative scroll-mt-24"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-gray-900 to-black pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--primary)]/20 via-[var(--bg-primary)] to-black pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-6 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -64,13 +66,16 @@ function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(false);
 
   return (
-    <main className="min-h-screen bg-black text-gray-200">
-      <Routes>
-        <Route path="/" element={<LandingPage isShifted={isBannerVisible} />} />
-        <Route path="/politicas" element={<PoliciesPage />} />
-      </Routes>
-      <CookieBanner onVisibilityChange={setIsBannerVisible} />
-    </main>
+    <DesignProvider>
+      <main className="min-h-screen bg-[var(--bg-primary)] text-gray-200">
+        <Routes>
+          <Route path="/" element={<LandingPage isShifted={isBannerVisible} />} />
+          <Route path="/politicas" element={<PoliciesPage />} />
+        </Routes>
+        <CookieBanner onVisibilityChange={setIsBannerVisible} />
+        <DesignPanel />
+      </main>
+    </DesignProvider>
   );
 }
 
