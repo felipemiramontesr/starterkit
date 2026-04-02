@@ -69,7 +69,7 @@ export const Navbar = (): ReactElement => {
               className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-800 bg-gray-900/50 hover:bg-gray-800 transition-all text-xs font-bold text-gray-300 hover:text-white"
             >
               <Globe className="w-3.5 h-3.5 text-indigo-500" />
-              <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
+              <span>{currentLang === 'es' ? 'EN' : 'ES'}</span>
             </button>
           </div>
 
@@ -80,7 +80,7 @@ export const Navbar = (): ReactElement => {
               className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-gray-800 text-xs font-bold text-gray-300"
             >
               <Globe className="w-3.5 h-3.5" />
-              <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
+              <span>{currentLang === 'es' ? 'EN' : 'ES'}</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
