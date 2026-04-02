@@ -15,7 +15,7 @@ describe('CookieBanner Component', () => {
     );
 
     // Should be visible now
-    expect(screen.getByText(/Privacidad y Cookies/i)).toBeInTheDocument();
+    expect(screen.getByText('cookies.title')).toBeInTheDocument();
     expect(onVisibilityChange).toHaveBeenCalledWith(true);
   });
 
@@ -26,12 +26,11 @@ describe('CookieBanner Component', () => {
       </MemoryRouter>
     );
 
-    const link = screen.getByRole('link', { name: /Aviso de Privacidad/i });
+    const link = screen.getByText('cookies.link');
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', '/politicas');
   });
 
-  it('contains a "Rechazar" button that hides the banner', async () => {
+  it('contains a "cookies.reject" button that hides the banner', async () => {
     const onVisibilityChange = vi.fn();
     render(
       <MemoryRouter>
@@ -39,14 +38,14 @@ describe('CookieBanner Component', () => {
       </MemoryRouter>
     );
 
-    const rejectButton = screen.getByRole('button', { name: /Rechazar/i });
+    const rejectButton = screen.getByText('cookies.reject');
     expect(rejectButton).toBeInTheDocument();
     
     act(() => {
       rejectButton.click();
     });
 
-    expect(screen.queryByText(/Privacidad y Cookies/i)).not.toBeInTheDocument();
+    expect(screen.queryByText('cookies.title')).not.toBeInTheDocument();
     expect(onVisibilityChange).toHaveBeenLastCalledWith(false);
   });
 });

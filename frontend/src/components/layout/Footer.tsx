@@ -1,14 +1,14 @@
 import { type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Globe, Mail, MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Footer Component.
  * Dynamic footer with social/contact links and legal links.
- *
- * @returns {ReactElement}
  */
 export const Footer = (): ReactElement => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,13 +17,13 @@ export const Footer = (): ReactElement => {
         
         <div className="flex items-center gap-2">
           <Shield className="w-6 h-6 text-indigo-500" />
-          <span className="font-bold text-xl text-white">Tu Marca<span className="text-indigo-500">.</span></span>
+          <span className="font-bold text-xl text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
         </div>
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-sm">
-          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">Aviso de Privacidad</Link>
-          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">Términos de Servicio</Link>
-          <span>&copy; {currentYear} Todos los Derechos Reservados.</span>
+          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">{t('footer.privacy')}</Link>
+          <Link to="/politicas" className="hover:text-indigo-400 transition-colors">{t('footer.terms')}</Link>
+          <span>&copy; {currentYear} {t('footer.rights')}</span>
         </div>
 
         <div className="flex items-center gap-4">

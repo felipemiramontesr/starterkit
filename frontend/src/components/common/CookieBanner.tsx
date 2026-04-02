@@ -1,12 +1,14 @@
 import { useState, useEffect, type ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { Cookie } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CookieBannerProps {
   onVisibilityChange: (visible: boolean) => void;
 }
 
 export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === 'undefined') return false;
     return !localStorage.getItem('cookies-accepted');
@@ -31,10 +33,10 @@ export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactEl
             <Cookie className="w-6 h-6 text-indigo-400" />
           </div>
           <div>
-            <h4 className="text-white font-bold text-lg">Privacidad y Cookies</h4>
+            <h4 className="text-white font-bold text-lg">{t('cookies.title')}</h4>
             <p className="text-gray-400 text-sm leading-relaxed md:whitespace-nowrap">
-              Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de acuerdo a las leyes mexicanas (LFPDPPP). Al continuar, aceptas nuestro{' '}
-              <Link to="/politicas" className="text-indigo-400 hover:underline">Aviso de Privacidad</Link>.
+              {t('cookies.text')}{' '}
+              <Link to="/politicas" className="text-indigo-400 hover:underline">{t('cookies.link')}</Link>.
             </p>
           </div>
         </div>
@@ -43,13 +45,13 @@ export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactEl
             onClick={handleAccept}
             className="flex-1 md:flex-none px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95"
           >
-            Aceptar
+            {t('cookies.accept')}
           </button>
           <button
             onClick={() => setIsVisible(false)}
             className="flex-1 md:flex-none px-8 py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold rounded-xl transition-all active:scale-95"
           >
-            Rechazar
+            {t('cookies.reject')}
           </button>
         </div>
       </div>

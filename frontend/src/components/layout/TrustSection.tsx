@@ -1,17 +1,16 @@
 import { useEffect, useState, type ReactElement } from 'react';
 import { Hexagon, Triangle, Circle, Square } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 /**
  * TrustSection Component.
  * Displays a grid of trust indicators/logos with fade-in animation on render.
- *
- * @returns {JSX.Element}
  */
 export const TrustSection = (): ReactElement => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Basic way to trigger animation after mount
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
@@ -28,7 +27,7 @@ export const TrustSection = (): ReactElement => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/10 via-black to-black pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
         <h2 className="text-lg font-bold tracking-widest uppercase text-indigo-500 mb-12 animate-fade-in-up">
-          Empresas que confían en tu visión
+          {t('trust.heading')}
         </h2>
         
         <div 

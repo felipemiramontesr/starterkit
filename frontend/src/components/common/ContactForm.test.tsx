@@ -7,15 +7,15 @@ describe('ContactForm Multi-Field Architecture', () => {
     render(<ContactForm />);
     
     // Títulos correctos
-    expect(screen.getByText(/¿Quieres una página web así\?/i)).toBeInTheDocument();
+    expect(screen.getByText('contact.form_title')).toBeInTheDocument();
     
     // Inputs existentes
-    expect(screen.getByPlaceholderText(/Juan Pérez/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/juan@ejemplo.com/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/5512345678/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Me gustaría una landing page/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('contact.name_placeholder')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('contact.email_placeholder')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('contact.phone_placeholder')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('contact.message_placeholder')).toBeInTheDocument();
     
     // Botón de envío
-    expect(screen.getByRole('button', { name: /Solicitar Presupuesto/i })).toBeInTheDocument();
+    expect(screen.getByText('contact.submit')).toBeInTheDocument();
   });
 });

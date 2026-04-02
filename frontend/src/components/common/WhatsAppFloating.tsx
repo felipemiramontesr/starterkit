@@ -1,5 +1,6 @@
 import { type ReactElement } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { BUSINESS_CONFIG } from '../../config/business';
 
 interface WhatsAppFloatingProps {
@@ -7,6 +8,7 @@ interface WhatsAppFloatingProps {
 }
 
 export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactElement => {
+  const { t } = useTranslation();
   const whatsappUrl = BUSINESS_CONFIG.whatsapp.getApiUrl();
 
   return (
@@ -19,12 +21,12 @@ export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactEle
           ? 'bottom-[200px] md:bottom-[160px] right-6 md:right-[40px]' 
           : 'bottom-6 right-6'
       }`}
-      aria-label="Chat on WhatsApp"
+      aria-label={t('whatsapp.label')}
     >
       <div className="flex items-center justify-center whitespace-nowrap">
         {/* Texto que se revela */}
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out font-bold text-base pointer-events-none group-hover:mr-3">
-          ¿Podemos ayudarte?
+          {t('whatsapp.help')}
         </span>
         
         {/* Icono a la derecha */}

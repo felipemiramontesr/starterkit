@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 describe('TrustSection Component', () => {
   it('renders title and trust items', () => {
     render(<TrustSection />);
-    expect(screen.getByText(/Empresas que confían/i)).toBeInTheDocument();
+    expect(screen.getByText('trust.heading')).toBeInTheDocument();
     
     expect(screen.getByText('Global Brand')).toBeInTheDocument();
     expect(screen.getByText('Tech Innovators')).toBeInTheDocument();

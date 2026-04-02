@@ -1,20 +1,23 @@
-import { type ReactElement } from 'react';
+import { type ReactElement, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { useTranslation } from 'react-i18next';
 import { Send, User, Mail, Phone, MessageSquare } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../config/business';
 
-const contactSchema = z.object({
-  name: z.string().min(3, 'El nombre debe tener al menos 3 caracteres'),
-  email: z.string().email('Por favor, ingresa un correo válido'),
-  phone: z.string().min(10, 'El teléfono debe tener al menos 10 dígitos'),
-  message: z.string().min(10, 'El mensaje es demasiado corto'),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export const ContactForm = (): ReactElement => {
+  const { t } = useTranslation();
+
+  const contactSchema = useMemo(() => z.object({
+    name: z.string().min(3, t('contact.errors.name')),
+    email: z.string().email(t('contact.errors.email')),
+    phone: z.string().min(10, t('contact.errors.phone')),
+    message: z.string().min(10, t('contact.errors.message')),
+  }), [t]);
+
+  type ContactFormData = z.infer<typeof contactSchema>;
+
   const {
     register,
     handleSubmit,
@@ -24,8 +27,8 @@ export const ContactForm = (): ReactElement => {
   });
 
   const onSubmit = (data: ContactFormData) => {
-    // Construct WhatsApp message
-    const waMessage = `Hola, mi nombre es ${data.name}. Mi correo es ${data.email}. Mi teléfono es ${data.phone}. Me interesa: ${data.message}`;
+    // Construct WhatsApp message with localized intro
+    const waMessage = `${t('hero.title')}: ${data.name}. ${data.email}. ${data.phone}. ${data.message}`;
     const finalUrl = BUSINESS_CONFIG.whatsapp.getApiUrl(waMessage);
     
     window.open(finalUrl, '_blank', 'noopener,noreferrer');
@@ -36,9 +39,9 @@ export const ContactForm = (): ReactElement => {
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-indigo-700" />
       
       <div className="text-center mb-4">
-        <h3 className="text-3xl font-extrabold text-white mb-4">¿Quieres una página web así?</h3>
+        <h3 className="text-3xl font-extrabold text-white mb-4">{t('contact.form_title')}</h3>
         <p className="text-gray-400 text-lg max-w-lg mx-auto font-light leading-relaxed">
-          Completa los campos a continuación para iniciar la construcción de tu imperio digital vía WhatsApp.
+          {t('contact.form_subtitle')}
         </p>
       </div>
 
@@ -46,12 +49,12 @@ export const ContactForm = (): ReactElement => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Nombre */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-400 ml-1">Nombre Completo</label>
+            <label className="text-sm font-medium text-gray-400 ml-1">{t('contact.name_label')}</label>
             <div className="relative">
               <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 {...register('name')}
-                placeholder="Juan Pérez"
+                placeholder={t('contact.name_placeholder')}
                 className="w-full pl-12 pr-4 py-2.5 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
               />
             </div>
@@ -60,12 +63,12 @@ export const ContactForm = (): ReactElement => {
 
           {/* Email */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-400 ml-1">Correo Electrónico</label>
+            <label className="text-sm font-medium text-gray-400 ml-1">{t('contact.email_label')}</label>
             <div className="relative">
               <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 {...register('email')}
-                placeholder="juan@ejemplo.com"
+                placeholder={t('contact.email_placeholder')}
                 className="w-full pl-12 pr-4 py-2.5 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
               />
             </div>
@@ -75,12 +78,12 @@ export const ContactForm = (): ReactElement => {
 
         {/* Teléfono */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-400 ml-1">Teléfono (WhatsApp)</label>
+          <label className="text-sm font-medium text-gray-400 ml-1">{t('contact.phone_label')}</label>
           <div className="relative">
             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
             <input
               {...register('phone')}
-              placeholder="5512345678"
+              placeholder={t('contact.phone_placeholder')}
               className="w-full pl-12 pr-4 py-4 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600"
             />
           </div>
@@ -89,13 +92,13 @@ export const ContactForm = (): ReactElement => {
 
         {/* Mensaje */}
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-400 ml-1">Cuéntanos sobre tu proyecto</label>
+          <label className="text-sm font-medium text-gray-400 ml-1">{t('contact.message_label')}</label>
           <div className="relative">
             <MessageSquare className="absolute left-4 top-6 w-5 h-5 text-gray-500" />
             <textarea
               {...register('message')}
               rows={4}
-              placeholder="Me gustaría una landing page para mi negocio de..."
+              placeholder={t('contact.message_placeholder')}
               className="w-full pl-12 pr-4 py-4 bg-black/40 border border-gray-800 rounded-xl focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-white placeholder:text-gray-600 resize-none"
             />
           </div>
@@ -108,11 +111,11 @@ export const ContactForm = (): ReactElement => {
           className="w-full flex items-center justify-center gap-3 px-8 py-3.5 text-lg font-bold bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] active:scale-95 disabled:opacity-50"
         >
           {isSubmitting ? (
-            <span className="flex items-center gap-2">Enviando...</span>
+            <span className="flex items-center gap-2">{t('contact.submitting')}</span>
           ) : (
             <>
               <Send className="w-6 h-6" />
-              Solicitar Presupuesto vía WhatsApp
+              {t('contact.submit')}
             </>
           )}
         </button>

@@ -1,15 +1,23 @@
 import { useState, useEffect, type ReactElement } from 'react';
-import { Menu, X, Shield } from 'lucide-react';
+import { Menu, X, Shield, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Navbar component with fluid glassmorphism effect.
  * Stays transparent at the top and blurs on scroll to maintain readability.
- *
- * @returns {JSX.Element} The responsive navigation bar.
+ * Includes a language switcher for i18n support.
  */
 export const Navbar = (): ReactElement => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const currentLang = i18n.language.split('-')[0]; // Handle cases like 'es-MX'
+  
+  const toggleLanguage = () => {
+    const nextLang = currentLang === 'es' ? 'en' : 'es';
+    i18n.changeLanguage(nextLang);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +28,10 @@ export const Navbar = (): ReactElement => {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Confianza', href: '#trust' },
-    { name: 'Contacto', href: '#contact' },
+    { name: t('navbar.home'), href: '#home' },
+    { name: t('navbar.services'), href: '#servicios' },
+    { name: t('navbar.trust'), href: '#trust' },
+    { name: t('navbar.contact'), href: '#contact' },
   ];
 
   return (
@@ -38,24 +46,42 @@ export const Navbar = (): ReactElement => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
             <Shield className="w-8 h-8 text-indigo-500" />
-            <span className="font-bold text-2xl tracking-tight text-white">Tu Marca<span className="text-indigo-500">.</span></span>
+            <span className="font-bold text-2xl tracking-tight text-white">{t('hero.title')}<span className="text-indigo-500">.</span></span>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
-              >
-                {link.name}
-              </a>
-            ))}
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Nav Links */}
+            <div className="flex space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gray-800 bg-gray-900/50 hover:bg-gray-800 transition-all text-xs font-bold text-gray-300 hover:text-white"
+            >
+              <Globe className="w-3.5 h-3.5 text-indigo-500" />
+              <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
+            </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-gray-800 text-xs font-bold text-gray-300"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 p-2 rounded-md"

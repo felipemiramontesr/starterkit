@@ -1,0 +1,106 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "trust": "Confianza",
+    "contact": "Contacto",
+    "lang_es": "ES",
+    "lang_en": "EN"
+  },
+  "hero": {
+    "title": "Tu Marca",
+    "subtitle": "Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Un diseño de alto rendimiento construido exclusivamente para captar la atención de tus prospectos.",
+    "cta": "Ver Demostración en Vivo"
+  },
+  "features": {
+    "title": "Infraestructura de Alto Vuelo",
+    "strategy": {
+      "title": "Estrategia Digital",
+      "desc": "Análisis profundo de mercado para posicionar tu marca donde están los ojos de tus clientes."
+    },
+    "design": {
+      "title": "Diseño de Vanguardia",
+      "desc": "Estética premium inspirada en el minimalismo funcional para una experiencia de usuario superior."
+    },
+    "conversion": {
+      "title": "Distribución & Conversión",
+      "desc": "Optimización técnica para motores de búsqueda y embudos de venta directos a WhatsApp."
+    }
+  },
+  "trust": {
+    "heading": "Empresas que confían en tu visión",
+    "title": "Confianza Corporativa",
+    "subtitle": "Alianza estratégica para el crecimiento escalable de tu presencia en la red.",
+    "badges": {
+      "support": "Soporte 24/7",
+      "security": "Seguridad SSL",
+      "guarantee": "Garantía de Calidad"
+    }
+  },
+  "contact": {
+    "section_title": "Contacto Operativo",
+    "section_subtitle": "¿Listo para dar el siguiente paso comercial?",
+    "form_title": "¿Quieres una página web así?",
+    "form_subtitle": "Completa los campos a continuación para iniciar la construcción de tu imperio digital vía WhatsApp.",
+    "name_label": "Nombre Completo",
+    "name_placeholder": "Juan Pérez",
+    "email_label": "Correo Electrónico",
+    "email_placeholder": "juan@ejemplo.com",
+    "phone_label": "Teléfono (WhatsApp)",
+    "phone_placeholder": "5512345678",
+    "message_label": "Cuéntanos sobre tu proyecto",
+    "message_placeholder": "Me gustaría una landing page para mi negocio de...",
+    "submit": "Solicitar Presupuesto vía WhatsApp",
+    "submitting": "Enviando...",
+    "errors": {
+      "name": "El nombre debe tener al menos 3 caracteres",
+      "email": "Por favor, ingresa un correo válido",
+      "phone": "El teléfono debe tener al menos 10 dígitos",
+      "message": "El mensaje es demasiado corto"
+    }
+  },
+  "cookies": {
+    "title": "Privacidad y Cookies",
+    "text": "Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de acuerdo a las leyes mexicanas (LFPDPPP). Al continuar, aceptas nuestro Aviso de Privacidad.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "link": "Aviso de Privacidad"
+  },
+  "footer": {
+    "privacy": "Aviso de Privacidad",
+    "terms": "Términos de Servicio",
+    "rights": "Todos los Derechos Reservados."
+  },
+  "whatsapp": {
+    "help": "¿Podemos ayudarte?",
+    "label": "Chat on WhatsApp"
+  },
+  "policies": {
+    "back": "Regresar al sitio",
+    "title": "Aviso de Privacidad Integral",
+    "last_updated": "Última actualización: 01 de Abril de 2026",
+    "intro": "En cumplimiento con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), se informa lo siguiente:",
+    "sections": {
+      "identity": {
+        "title": "1. Identidad y Domicilio del Responsable",
+        "content": "Tu Marca (en adelante 'El Responsable') es responsable del tratamiento de sus datos personales, con domicilio en Ciudad de México."
+      },
+      "data": {
+        "title": "2. Datos Personales Recabados",
+        "content": "Para las finalidades señaladas en este aviso, recabamos su nombre, correo electrónico y número telefónico a través de nuestro formulario de contacto."
+      },
+      "purpose": {
+        "title": "3. Finalidades del Tratamiento",
+        "content": "Los datos serán utilizados exclusivamente para: (a) Proveer información sobre servicios solicitados, (b) Atender dudas y comentarios, (c) Canalizar la comunicación vía WhatsApp."
+      },
+      "rights": {
+        "title": "4. Derechos ARCO",
+        "content": "Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse al tratamiento de sus datos. Para ejercerlos, envíe un correo a contacto@tumarca.net."
+      },
+      "cookies": {
+        "title": "5. Uso de Cookies",
+        "content": "Utilizamos cookies esenciales para el funcionamiento del sitio y analíticas para mejorar la navegación. Puede desactivarlas en la configuración de su navegador."
+      }
+    }
+  }
+}

@@ -13,11 +13,11 @@ describe('Footer Component', () => {
     );
     
     // Branding
-    expect(screen.getByText(/Tu Marca/i)).toBeInTheDocument();
+    expect(screen.getByText(/hero\.title/i)).toBeInTheDocument();
     
     // Links
-    expect(screen.getByText('Aviso de Privacidad')).toBeInTheDocument();
-    expect(screen.getByText('Términos de Servicio')).toBeInTheDocument();
+    expect(screen.getByText('footer.privacy')).toBeInTheDocument();
+    expect(screen.getByText('footer.terms')).toBeInTheDocument();
     
     // Social labels
     expect(screen.getByLabelText('Website')).toBeInTheDocument();

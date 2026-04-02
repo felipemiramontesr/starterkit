@@ -1,0 +1,106 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "trust": "Trust",
+    "contact": "Contact",
+    "lang_es": "ES",
+    "lang_en": "EN"
+  },
+  "hero": {
+    "title": "Your Brand",
+    "subtitle": "Imagine your product or service described with persuasive copywriting right in this spot. A high-performance design built exclusively to capture your prospects' attention.",
+    "cta": "See Live Demo"
+  },
+  "features": {
+    "title": "High-Performance Infrastructure",
+    "strategy": {
+      "title": "Digital Strategy",
+      "desc": "In-depth market analysis to position your brand where your customers' eyes are."
+    },
+    "design": {
+      "title": "Cutting-Edge Design",
+      "desc": "Premium aesthetics inspired by functional minimalism for a superior user experience."
+    },
+    "conversion": {
+      "title": "Distribution & Conversion",
+      "desc": "Technical optimization for search engines and sales funnels directly to WhatsApp."
+    }
+  },
+  "trust": {
+    "heading": "Companies trusting your vision",
+    "title": "Corporate Trust",
+    "subtitle": "Strategic alliance for the scalable growth of your online presence.",
+    "badges": {
+      "support": "24/7 Support",
+      "security": "SSL Security",
+      "guarantee": "Quality Guarantee"
+    }
+  },
+  "contact": {
+    "section_title": "Operational Contact",
+    "section_subtitle": "Ready to take the next commercial step?",
+    "form_title": "Want a website like this?",
+    "form_subtitle": "Fill out the fields below to start building your digital empire via WhatsApp.",
+    "name_label": "Full Name",
+    "name_placeholder": "John Doe",
+    "email_label": "Email Address",
+    "email_placeholder": "john@example.com",
+    "phone_label": "Phone (WhatsApp)",
+    "phone_placeholder": "5512345678",
+    "message_label": "Tell us about your project",
+    "message_placeholder": "I would like a landing page for my business in...",
+    "submit": "Request Quote via WhatsApp",
+    "submitting": "Sending...",
+    "errors": {
+      "name": "Name must be at least 3 characters",
+      "email": "Please enter a valid email",
+      "phone": "Phone must be at least 10 digits",
+      "message": "Message is too short"
+    }
+  },
+  "cookies": {
+    "title": "Privacy and Cookies",
+    "text": "We use cookies to improve your experience and analyze traffic in accordance with Mexican laws (LFPDPPP). By continuing, you accept our Privacy Notice.",
+    "accept": "Accept",
+    "reject": "Reject",
+    "link": "Privacy Notice"
+  },
+  "footer": {
+    "privacy": "Privacy Notice",
+    "terms": "Terms of Service",
+    "rights": "All Rights Reserved."
+  },
+  "whatsapp": {
+    "help": "How can we help?",
+    "label": "Chat on WhatsApp"
+  },
+  "policies": {
+    "back": "Back to site",
+    "title": "Comprehensive Privacy Notice",
+    "last_updated": "Last updated: April 01, 2026",
+    "intro": "In compliance with the Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP), the following is informed:",
+    "sections": {
+      "identity": {
+        "title": "1. Identity and Address of the Data Controller",
+        "content": "Your Brand (hereinafter 'The Controller') is responsible for processing your personal data, located in Mexico City."
+      },
+      "data": {
+        "title": "2. Personal Data Collected",
+        "content": "For the purposes outlined in this notice, we collect your name, email, and phone number through our contact form."
+      },
+      "purpose": {
+        "title": "3. Purposes of Processing",
+        "content": "The data will be used exclusively for: (a) Providing information about requested services, (b) Addressing questions and comments, (c) Facilitating communication via WhatsApp."
+      },
+      "rights": {
+        "title": "4. ARCO Rights",
+        "content": "You have the right to Access, Rectify, Cancel, or Oppose the processing of your data. To exercise them, send an email to contact@yourbrand.net."
+      },
+      "cookies": {
+        "title": "5. Use of Cookies",
+        "content": "We use essential cookies for site functionality and analytics to improve navigation. You can disable them in your browser settings."
+      }
+    }
+  }
+}

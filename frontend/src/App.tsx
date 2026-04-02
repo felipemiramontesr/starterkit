@@ -1,5 +1,6 @@
 import { useState, type ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/layout/Hero';
 import { TrustSection } from './components/layout/TrustSection';
@@ -13,6 +14,8 @@ import { PoliciesPage } from './pages/PoliciesPage';
 import { BUSINESS_CONFIG } from './config/business';
 
 const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
+  const { t } = useTranslation();
+
   return (
     <>
       <SEO />
@@ -20,9 +23,9 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
       
       <div id="home">
         <Hero 
-          title="Tu Marca"
-          subtitle="Imagina tu producto o servicio descrito con una redacción persuasiva justo en este espacio. Un diseño de alto rendimiento construido exclusivamente para captar la atención de tus prospectos."
-          ctaText="Ver Demostración en Vivo"
+          title={t('hero.title')}
+          subtitle={t('hero.subtitle')}
+          ctaText={t('hero.cta')}
           onCtaClick={() => {
             window.open(BUSINESS_CONFIG.whatsapp.getApiUrl(), '_blank', 'noopener,noreferrer');
           }}
@@ -41,10 +44,10 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-6 animate-fade-in-up">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-              Contacto Operativo
+              {t('contact.section_title')}
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              ¿Listo para dar el siguiente paso comercial?
+              {t('contact.section_subtitle')}
             </p>
           </div>
           <ContactForm />
