@@ -21,9 +21,9 @@ export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactEle
       }`}
       aria-label="Chat on WhatsApp"
     >
-      <div className="flex items-center justify-center gap-3 whitespace-nowrap">
+      <div className="flex items-center justify-center whitespace-nowrap">
         {/* Texto que se revela */}
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out font-bold text-base pointer-events-none">
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out font-bold text-base pointer-events-none group-hover:mr-3">
           ¿Podemos ayudarte?
         </span>
         
