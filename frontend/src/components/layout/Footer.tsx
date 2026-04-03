@@ -28,7 +28,7 @@ export const Footer = (): ReactElement => {
             className="flex items-center gap-2 text-sm text-[var(--accent)]/80 hover:text-[var(--primary-hover)] transition-all group/address"
           >
             <MapPin className="w-4 h-4 text-[var(--primary)] group-hover/address:scale-110 transition-transform" />
-            <span className="border-b border-transparent group-hover/address:border-[var(--primary)]/50">{t('footer.address')}</span>
+            <span>{t('footer.address')}</span>
           </a>
         </div>
 
