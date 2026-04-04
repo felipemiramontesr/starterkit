@@ -38,7 +38,7 @@ export const Navbar = (): ReactElement => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-gray-900/80 backdrop-blur-md border-b border-gray-800 shadow-lg'
+          ? 'bg-gray-900/80 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -99,7 +99,7 @@ export const Navbar = (): ReactElement => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 backdrop-blur-xl border-b border-gray-800 animate-fade-in-up">
+        <div className="md:hidden bg-gray-900/95 backdrop-blur-xl animate-fade-in-up">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <a
