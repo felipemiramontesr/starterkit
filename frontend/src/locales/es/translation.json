@@ -2,7 +2,13 @@
   "navbar": {
     "home": "Inicio",
     "services": "Servicios",
-    "trust": "Confianza",
+    "process": "Proceso",
+    "portfolio": "Portafolio",
+    "team": "Equipo",
+    "testimonials": "Social",
+    "facilities": "Galería",
+    "pricing": "Precios",
+    "faq": "FAQ",
     "contact": "Contacto",
     "lang_es": "ES",
     "lang_en": "EN"

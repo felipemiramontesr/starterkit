@@ -30,9 +30,13 @@ export const Navbar = (): ReactElement => {
   const navLinks = [
     { name: t('navbar.home'), href: '#home' },
     { name: t('navbar.services'), href: '#servicios' },
-    { name: t('portfolio.title'), href: '#portfolio' },
-    { name: t('team.title'), href: '#equipo' },
-    { name: t('pricing.title'), href: '#precios' },
+    { name: t('navbar.process'), href: '#proceso' },
+    { name: t('navbar.portfolio'), href: '#portfolio' },
+    { name: t('navbar.team'), href: '#equipo' },
+    { name: t('navbar.testimonials'), href: '#testimonios' },
+    { name: t('navbar.facilities'), href: '#instalaciones' },
+    { name: t('navbar.pricing'), href: '#precios' },
+    { name: t('navbar.faq'), href: '#faq' },
     { name: t('navbar.contact'), href: '#contact' },
   ];
 
