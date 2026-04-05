@@ -1,10 +1,10 @@
-import { useState, type ReactElement } from 'react';
+import { useState, lazy, Suspense, type ReactElement } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/layout/Hero';
-import { TrustSection } from './components/layout/TrustSection';
 import { Features } from './components/layout/Features';
+import { TrustSection } from './components/layout/TrustSection';
 import { ContactForm } from './components/common/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { SEO } from './components/common/SEO';
@@ -14,6 +14,21 @@ import { DesignPanel } from './components/common/DesignPanel';
 import { PoliciesPage } from './pages/PoliciesPage';
 import { BUSINESS_CONFIG } from './config/business';
 import { DesignProvider } from './hooks/DesignContext';
+
+// Lazy Loaded Sections
+const Stats = lazy(() => import('./components/layout/Stats'));
+const Portfolio = lazy(() => import('./components/layout/Portfolio'));
+const Process = lazy(() => import('./components/layout/Process'));
+const Team = lazy(() => import('./components/layout/Team'));
+const Testimonials = lazy(() => import('./components/layout/Testimonials'));
+const Gallery = lazy(() => import('./components/layout/Gallery'));
+const Pricing = lazy(() => import('./components/layout/Pricing'));
+const FAQ = lazy(() => import('./components/layout/FAQ'));
+
+// Loading Fallback
+const SectionSkeleton = () => (
+  <div className="w-full h-80 bg-gray-900/20 animate-pulse rounded-3xl" />
+);
 
 const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
   const { t } = useTranslation();
@@ -36,7 +51,21 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
 
       <Features />
 
+      <Suspense fallback={<SectionSkeleton />}>
+        <Stats />
+        <Portfolio />
+        <Process />
+        <Team />
+      </Suspense>
+
       <TrustSection />
+
+      <Suspense fallback={<SectionSkeleton />}>
+        <Testimonials />
+        <Gallery />
+        <Pricing />
+        <FAQ />
+      </Suspense>
 
       <section 
         id="contact" 

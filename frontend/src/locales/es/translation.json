@@ -27,6 +27,75 @@
       "desc": "Optimización técnica para motores de búsqueda y embudos de venta directos a WhatsApp."
     }
   },
+  "stats": {
+    "projects": "Proyectos Completados",
+    "clients": "Clientes Felices",
+    "experience": "Años de Experiencia",
+    "support": "Soporte Técnico"
+  },
+  "portfolio": {
+    "title": "Portafolio de Élite",
+    "subtitle": "Una muestra selecta de nuestras implementaciones más disruptivas.",
+    "view_project": "Ver Proyecto",
+    "items": {
+      "web": "Plataforma Web",
+      "app": "Aplicación Móvil",
+      "ux": "Experiencia UX",
+      "brand": "Identidad Visual"
+    }
+  },
+  "process": {
+    "title": "Nuestro Proceso Operativo",
+    "subtitle": "Metodología ágil diseñada para minimizar riesgos y maximizar el ROI.",
+    "steps": {
+      "one": { "title": "Consultoría", "desc": "Análisis de viabilidad y definición de alcances técnicos." },
+      "two": { "title": "Arquitectura", "desc": "Diseño de la estructura y flujo de datos del ecosistema." },
+      "three": { "title": "Desarrollo", "desc": "Construcción modular bajo estándares internacionales." },
+      "four": { "title": "Lanzamiento", "desc": "Despliegue optimizado y monitoreo de rendimiento real." }
+    }
+  },
+  "team": {
+    "title": "Nuestros Profesionales",
+    "subtitle": "Talento de clase mundial dedicado a la excelencia técnica.",
+    "view_profile": "Ver Perfil",
+    "roles": {
+      "lead": "Director Tecnológico",
+      "design": "Diseñador Senior UX/UI",
+      "dev": "Especialista Fullstack",
+      "strategy": "Estratega Digital"
+    }
+  },
+  "testimonials": {
+    "title": "Confianza Comprobada",
+    "subtitle": "Lo que dicen los líderes que han escalado con nosotros."
+  },
+  "facilities": {
+    "title": "Nuestras Instalaciones",
+    "subtitle": "Infraestructura de vanguardia para operaciones críticas.",
+    "hq": "Sede Central de Operaciones",
+    "lab": "Laboratorio de Innovación",
+    "lounge": "Espacios de Colaboración"
+  },
+  "pricing": {
+    "title": "Inversión Transparente",
+    "subtitle": "Paquetes escalables adaptados a la madurez de tu negocio.",
+    "cta": "Empezar Ahora",
+    "most_popular": "Más Popular",
+    "tiers": {
+      "starter": { "name": "Esencial", "price": "1,500", "desc": "Ideal para marcas en crecimiento." },
+      "pro": { "name": "Profesional", "price": "3,500", "desc": "La solución completa para empresas." },
+      "enterprise": { "name": "Corporativo", "price": "7,000", "desc": "Ecosistema a medida sin límites." }
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Resolviendo tus dudas técnicas antes de iniciar.",
+    "items": {
+      "time": { "q": "¿Cuánto tiempo toma el desarrollo?", "a": "Dependiendo de la complejidad, un proyecto promedio toma entre 2 a 4 semanas." },
+      "support": { "q": "¿Ofrecen soporte post-lanzamiento?", "a": "Sí, incluimos mantenimiento técnico y actualizaciones de seguridad constantes." },
+      "seo": { "q": "¿Mi sitio estará optimizado para Google?", "a": "Absolutamente. Implementamos SEO técnico nativo en cada línea de código." }
+    }
+  },
   "trust": {
     "heading": "Empresas que confían en tu visión",
     "title": "Confianza Corporativa",
