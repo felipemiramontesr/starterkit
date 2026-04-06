@@ -15,6 +15,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   frontend-build-test:
     runs-on: ubuntu-latest
@@ -22,8 +25,8 @@ jobs:
       run:
         working-directory: ./frontend
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24.x
       # Install in root to resolve Workspaces
@@ -33,7 +36,7 @@ jobs:
       - run: npm run test
       - run: npm run build
       - name: Archive frontend artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-dist
           path: frontend/dist
@@ -44,8 +47,8 @@ jobs:
       run:
         working-directory: ./backend
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24.x
       - run: npm install --ignore-scripts
@@ -63,10 +66,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: 24.x
           cache: 'npm'
@@ -87,17 +90,17 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
 
   deploy-production:
     needs: [frontend-build-test, backend-build-test]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       
       - name: Download frontend artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v4
         with:
           name: frontend-dist
           path: dist
