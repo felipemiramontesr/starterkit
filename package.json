@@ -2,13 +2,15 @@
   "name": "starterkit-monorepo",
   "private": true,
   "type": "module",
-  "version": "0.11.12",
+  "version": "0.11.13",
   "workspaces": [
     "frontend",
     "backend"
   ],
   "scripts": {
     "prepare": "husky",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
     "commit:patch": "node scripts/commit.js patch",
     "commit:minor": "node scripts/commit.js minor",
     "commit:major": "node scripts/commit.js major"
