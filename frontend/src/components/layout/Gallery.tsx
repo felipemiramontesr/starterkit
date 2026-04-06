@@ -40,7 +40,7 @@ const Gallery = (): ReactElement => {
                 src={item.image}
                 alt={t(`facilities.${item.title}`)}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-1"
+                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:rotate-1"
               />
 
               {/* Advanced Cinematic Overlay */}
