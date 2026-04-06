@@ -20,8 +20,9 @@ describe('Footer Component', () => {
     expect(screen.getByText('footer.terms')).toBeInTheDocument();
     
     // Social labels
-    expect(screen.getByLabelText('Website')).toBeInTheDocument();
-    expect(screen.getByLabelText('Mail')).toBeInTheDocument();
-    expect(screen.getByLabelText('Chat')).toBeInTheDocument();
+    expect(screen.getByLabelText('Facebook')).toBeInTheDocument();
+    expect(screen.getByLabelText('Instagram')).toBeInTheDocument();
+    expect(screen.getByLabelText('X')).toBeInTheDocument();
+    expect(screen.getByLabelText('TikTok')).toBeInTheDocument();
   });
 });
