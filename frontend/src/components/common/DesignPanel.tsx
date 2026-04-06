@@ -12,10 +12,7 @@ import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem';
  */
 export const DesignPanel = () => {
   const { palette, setPalette, bgType, setBgType, palettes } = useDesignSystem();
-  const [isOpen, setIsOpen] = useState(() => {
-    if (typeof window === 'undefined') return true;
-    return window.innerWidth >= 1280;
-  });
+  const [isOpen, setIsOpen] = useState(false);
 
   const paletteNames: Record<Palette, string> = {
     indigo: 'Classic Indigo',
