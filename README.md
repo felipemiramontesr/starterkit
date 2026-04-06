@@ -1,32 +1,46 @@
-# Starter Kit Pro
+# 🛡️ Sentinel StarterKit Pro
 
-Este es un starter kit de alto rendimiento diseñado para construir landing pages con una filosofía de **"cero tolerancia a la deuda técnica"**.
+[![CI Pipeline](https://github.com/felipemiramontesr/starterkit/actions/workflows/ci.yml/badge.svg)](https://github.com/felipemiramontesr/starterkit/actions/workflows/ci.yml)
+[![Documentation Deployment](https://github.com/felipemiramontesr/starterkit/actions/workflows/docs.yml/badge.svg)](https://github.com/felipemiramontesr/starterkit/actions/workflows/docs.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Tecnologías Principales
-- **Vite** + **React** + **TypeScript**
-- **Tailwind CSS**
+> **"Cero Deuda Técnica. Máximo Rendimiento."**
+> Un ecosistema Tier-1 diseñado para desplegar landing pages cinematográficas con una gobernanza de software de clase mundial.
 
-## Calidad y Mantenibilidad
-- Configurado con reglas estrictas de `ESLint` y `Prettier`.
-- Integración nativa con `TypeDoc` para documentación de código.
+---
 
-## CI/CD Pipeline
-Este proyecto implementa dos flujos de trabajo clave en GitHub Actions:
+## 🏛️ Arquitectura y Blueprints
+Para una comprensión profunda de la ingeniería detrás de este proyecto, consulte nuestros recursos maestros:
 
-### 1. Integración Continua (CI Pipeline)
-Ubicado en `.github/workflows/ci.yml`.
-- Se detona automáticamente en cada `push` o `pull_request` hacia la rama `main`.
-- Realiza: Instalación de dependencias, chequeo de Linter, Type checking estricto, pruebas con **Vitest** y finalmente construye el artefacto.
+- 📑 **[Documentación Técnica (Live)](https://felipemiramontesr.github.io/starterkit/technical-docs/)** - Portal interactivo generado automáticamente desde el código fuente (TSDoc/JSDoc).
+- 🏗️ **[Arquitectura de Sistema (Blueprints)](docs/ARCHITECTURE.md)** - Diagramas Mermaid detallando el flujo de datos y el motor de diseño.
 
-### 2. Despliegue Continuo (CD)
-Ubicado en `.github/workflows/deploy.yml`.
-- Se ejecuta **solamente si** el `CI Pipeline` ha finalizado con éxito ("Completed" state) sobre la rama `main`.
-- Automáticamente despliega la carpeta `dist/` a través de FTP apuntando a la raíz del servidor gracias al hook `SamKirkland/FTP-Deploy-Action`.
+## 🚀 Tecnologías Core
+| Frontend Stack | Backend Engine | Devops & QA |
+| :--- | :--- | :--- |
+| **React 19** + Vite | **Node.js 20** + Express | **Vitest** (Unit Testing) |
+| TypeScript (Strict) | Zod (Zero Trust Validation) | ESLint (Tier-1 Rules) |
+| Tailwind CSS 4 | Helmet (Security Headers) | GitHub Actions (CI/CD) |
 
-> **Nota para el equipo de Infraestructura:** Asegúrate de que los Secrets `FTP_SERVER`, `FTP_USER` y `FTP_PASSWORD` estén configurados en el repositorio.
+## 🛠️ Comandos Globales (Monorepo)
 
-## Scripts de Desarrollo
-- `npm run dev`: Levanta el entorno de servidor en local.
-- `npm run build`: Compila para producción en `dist/`.
-- `npm run test`: Ejecuta los Smoke Tests unitarios de manera única gracias a Vitest y Testing Library.
-- `npm run docs`: Inspecciona el código (usando interfaces y funciones tipadas) y expone la documentación TSDoc formateada en la carpeta `docs/`.
+```bash
+# Desarrollo Local
+npm run dev          # Iniciar frontend y backend
+npm run build        # Compilar para producción (dist/)
+
+# Calidad y Pruebas
+npm run test         # Ejecutar suite de pruebas unitarias
+npm run lint         # Validar estándares de código y JSDoc
+npm run docs:build   # Generar blueprints técnicos locales
+```
+
+## 🔐 Gobernanza de Software
+Este repositorio implementa una política de **"Zero Warning Build"**:
+- **Linting Estricto:** Cada línea de código es validada contra estándares de documentación profesional.
+- **Validación Zod:** Blindaje total de entradas de datos en el backend.
+- **Deployment Atómico:** Despliegues automatizados vía FTP una vez que todos los controles de calidad son superados.
+
+---
+
+*Desarrollado con pasión por la excelencia técnica.* 💎✨

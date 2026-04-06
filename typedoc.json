@@ -1,0 +1,15 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["frontend/src/App.tsx", "backend/src/server.ts"],
+  "out": "docs/technical-docs",
+  "name": "Sentinel StarterKit - Technical Blueprint",
+  "includeVersion": true,
+  "plugin": ["typedoc-plugin-mermaid"],
+  "theme": "default",
+  "readme": "README.md",
+  "exclude": ["**/*.test.ts", "**/*.test.tsx", "**/node_modules/**"],
+  "githubPages": true,
+  "cleanOutputDir": true,
+  "skipErrorChecking": true,
+  "blockTags": ["@description", "@component", "@route", "@module"]
+}
