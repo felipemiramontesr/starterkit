@@ -15,9 +15,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   frontend-build-test:
     runs-on: ubuntu-latest
@@ -29,7 +26,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24.x
-      # Iniciar install en la raíz para resolver los Workspaces
+      # Install in root to resolve Workspaces
       - run: npm install --ignore-scripts
         working-directory: .
       - run: npm run lint
@@ -81,7 +78,7 @@ jobs:
         run: npm run docs:build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -90,7 +87,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   deploy-production:
     needs: [frontend-build-test, backend-build-test]
@@ -112,6 +109,6 @@ jobs:
         env:
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-          FTP_HOST: ${{ secrets.FTP_SERVER }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
         run: |
           lftp -c "set ftp:ssl-allow no; open -u $FTP_USER,$FTP_PASS $FTP_HOST; mirror -v -R ./dist/ / --parallel=10"
