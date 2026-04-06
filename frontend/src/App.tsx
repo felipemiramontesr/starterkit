@@ -38,7 +38,7 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
       <SEO />
       <Navbar />
       
-      <div id="home">
+      <div id="home" className="scroll-mt-32">
         <Hero 
           title={t('hero.title')}
           subtitle={t('hero.subtitle')}
@@ -49,27 +49,45 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
         />
       </div>
 
-      <Features />
+      <div id="servicios" className="scroll-mt-32">
+        <Features />
+      </div>
 
       <Suspense fallback={<SectionSkeleton />}>
-        <Stats />
-        <Portfolio />
-        <Process />
-        <Team />
+        <div id="stats" className="scroll-mt-32">
+          <Stats />
+        </div>
+        <div id="portfolio" className="scroll-mt-32">
+          <Portfolio />
+        </div>
+        <div id="proceso" className="scroll-mt-32">
+          <Process />
+        </div>
+        <div id="equipo" className="scroll-mt-32">
+          <Team />
+        </div>
       </Suspense>
 
       <TrustSection />
 
       <Suspense fallback={<SectionSkeleton />}>
-        <Testimonials />
-        <Gallery />
-        <Pricing />
-        <FAQ />
+        <div id="testimonios" className="scroll-mt-32">
+          <Testimonials />
+        </div>
+        <div id="instalaciones" className="scroll-mt-32">
+          <Gallery />
+        </div>
+        <div id="precios" className="scroll-mt-32">
+          <Pricing />
+        </div>
+        <div id="faq" className="scroll-mt-32">
+          <FAQ />
+        </div>
       </Suspense>
 
       <section 
         id="contact" 
-        className="w-full py-8 md:py-10 bg-[var(--bg-primary)] border-b border-gray-800 relative scroll-mt-24"
+        className="w-full py-8 md:py-10 bg-[var(--bg-primary)] border-b border-gray-800 relative scroll-mt-32"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--primary)]/20 via-[var(--bg-primary)] to-black pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">

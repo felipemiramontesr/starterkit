@@ -42,7 +42,7 @@ export const Navbar = (): ReactElement => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[120] transition-all duration-300 ${
         isScrolled
           ? 'bg-gray-900/80 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
@@ -55,14 +55,14 @@ export const Navbar = (): ReactElement => {
             <span className="font-bold text-2xl tracking-tight text-white">{t('hero.title')}<span className="text-[var(--primary)]">.</span></span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center space-x-8">
             {/* Nav Links */}
-            <div className="flex space-x-8">
+            <div className="flex space-x-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
+                  className="text-gray-300 hover:text-white transition-colors text-xs font-medium tracking-wide whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -80,7 +80,7 @@ export const Navbar = (): ReactElement => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="xl:hidden flex items-center gap-4">
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-1.5 px-2 py-1 rounded-md border border-gray-800 text-xs font-bold text-gray-300"
@@ -105,7 +105,7 @@ export const Navbar = (): ReactElement => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 backdrop-blur-xl animate-fade-in-up">
+        <div className="xl:hidden bg-gray-900/95 backdrop-blur-xl animate-fade-in-up">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <a

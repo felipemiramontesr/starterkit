@@ -16,15 +16,13 @@ export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactEle
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group fixed z-[110] h-16 flex items-center justify-center bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-[0_0_30px_var(--primary-shadow)] transition-all duration-500 ease-in-out transform hover:scale-105 active:scale-95 overflow-hidden w-16 hover:w-[240px] px-0 hover:px-8 ${
+      className={`group fixed z-[100] h-16 flex items-center justify-center bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-[0_0_30px_var(--primary-shadow)] transition-all duration-500 ease-in-out transform hover:scale-105 active:scale-95 overflow-hidden w-16 hover:w-[240px] px-0 hover:px-8 ${
         isShifted 
           ? 'bottom-[200px] md:bottom-[160px] right-6 md:right-[40px]' 
           : 'bottom-6 right-6'
       }`}
       aria-label={t('whatsapp.label')}
     >
-      {/* Dynamic Pulse Effect matching the palette */}
-      <div className="absolute inset-0 rounded-full bg-[var(--primary)] opacity-20 animate-ping group-hover:hidden" />
       <div className="flex items-center justify-center whitespace-nowrap">
         {/* Texto que se revela */}
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out font-bold text-base pointer-events-none group-hover:mr-3">
