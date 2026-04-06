@@ -29,7 +29,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24.x
-      # Install in root to resolve Workspaces
+      # Inicia install en la raíz para resolver los Workspaces
       - run: npm install --ignore-scripts
         working-directory: .
       - run: npm run lint
@@ -83,10 +83,23 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Archive Documentation Artifact (Native Node 24 Bypass)
+        shell: sh
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory "./docs/technical-docs" \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+      
+      - name: Upload Documentation Artifact (Native Node 24 Bypass)
+        uses: actions/upload-artifact@v7
         with:
-          path: './docs/technical-docs'
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
 
       - name: Deploy to GitHub Pages
         id: deployment
