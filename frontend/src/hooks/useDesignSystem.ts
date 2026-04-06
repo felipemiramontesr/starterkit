@@ -78,6 +78,13 @@ export interface DesignContextType {
 
 export const DesignContext = createContext<DesignContextType | undefined>(undefined);
 
+/**
+ * useDesignSystem Hook.
+ * Primary hook for accessing and manipulating the global design state.
+ * 
+ * @returns {DesignContextType} The current design system context value.
+ * @throws {Error} If used outside of a DesignProvider.
+ */
 export const useDesignSystem = () => {
   const context = useContext(DesignContext);
   if (!context) {

@@ -35,7 +35,7 @@ const SectionSkeleton = () => (
  * The primary layout orchestrator for the bento-grid landing page.
  * 
  * @component
- * @param {Object} props - Component properties.
+ * @param {object} props - Component properties.
  * @param {boolean} props.isShifted - Whether the layout is shifted due to banners.
  * @returns {ReactElement} The assembled landing page.
  */

@@ -11,7 +11,7 @@ import { DesignContext, PALETTES, type Palette, type BgType } from './useDesignS
  * Orchestrates the injection of CSS variables into the document root
  * and provides state management for themes and UI panels.
  * 
- * @param {Object} props - Component properties.
+ * @param {object} props - Component properties.
  * @param {ReactNode} props.children - Child components to be wrapped.
  * @returns {ReactElement} The design orchestration provider.
  */
