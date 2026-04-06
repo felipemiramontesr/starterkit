@@ -7,6 +7,7 @@ html {
 @theme {
   --animate-fade-in: fadeIn 0.5s ease-out forwards;
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-fade-in-premium: fadeInPremium 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   /* Colores Dinámicos (Design Engine) */
@@ -38,6 +39,10 @@ html {
   @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInPremium {
+    0% { opacity: 0; transform: translateX(-15px) scale(0.98); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
   }
 }
 
