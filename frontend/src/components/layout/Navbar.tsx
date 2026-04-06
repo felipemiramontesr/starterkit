@@ -117,7 +117,7 @@ export const Navbar = (): ReactElement => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center gap-4 px-4 py-4 rounded-xl text-lg font-semibold text-gray-300 hover:text-white hover:bg-[var(--primary)]/10 border border-transparent hover:border-[var(--primary)]/20 transition-all group animate-fade-in-premium"
+                  className="flex items-center gap-4 px-4 py-4 rounded-xl text-lg font-semibold text-gray-300 hover:text-white hover:bg-[var(--primary)]/10 border border-transparent hover:border-[var(--primary)]/20 transition-all group animate-fade-in-premium opacity-0"
                   style={{ animationDelay: `${idx * 120}ms` }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
