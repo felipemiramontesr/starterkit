@@ -33,7 +33,7 @@ export const PoliciesPage = (): ReactElement => {
         </div>
       </nav>
 
-      <article className="max-w-4xl mx-auto px-4 pt-32 pb-20">
+      <article className="max-w-4xl mx-auto px-4 pt-32 pb-20 break-words">
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 font-display">
             {t('policies.title')}
