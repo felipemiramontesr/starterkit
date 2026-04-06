@@ -34,7 +34,7 @@ export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactEl
           </div>
           <div>
             <h4 className="text-white font-bold text-lg">{t('cookies.title')}</h4>
-            <p className="text-gray-400 text-sm leading-relaxed text-justify sm:text-left">
+            <p className="text-gray-400 text-sm leading-relaxed md:whitespace-nowrap">
               {t('cookies.text')}{' '}
               <Link to="/politicas" className="text-[var(--primary)]">{t('cookies.link')}</Link>.
             </p>

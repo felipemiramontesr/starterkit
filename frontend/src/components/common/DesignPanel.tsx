@@ -29,7 +29,7 @@ export const DesignPanel = () => {
 
   return (
     <div 
-      className={`fixed left-0 top-[25%] sm:top-1/2 -translate-y-1/2 z-[110] transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
+      className={`fixed left-0 top-1/2 -translate-y-1/2 z-[110] transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
         isOpen ? 'translate-x-0' : '-translate-x-[calc(100%-48px)]'
       }`}
     >
