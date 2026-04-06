@@ -6,6 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { Send, User, Mail, Phone, MessageSquare } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../config/business';
 
+/**
+ * ContactForm Component.
+ * High-conversion lead capture form with Zod validation and WhatsApp integration.
+ * Features a professional dark-glass aesthetic with real-time error feedback.
+ * 
+ * @component
+ * @returns {ReactElement} The secure lead capture form.
+ */
 export const ContactForm = (): ReactElement => {
   const { t } = useTranslation();
 

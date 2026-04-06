@@ -7,6 +7,16 @@ interface CookieBannerProps {
   onVisibilityChange: (visible: boolean) => void;
 }
 
+/**
+ * CookieBanner Component.
+ * Displays a professional GDPR-compliant cookie consent banner.
+ * Communicates its visibility state to parent components for layout adjustments.
+ * 
+ * @component
+ * @param {CookieBannerProps} props - Component properties.
+ * @param {(visible: boolean) => void} props.onVisibilityChange - Callback to notify parent of visibility state.
+ * @returns {ReactElement | null} The rendered banner or null if already accepted.
+ */
 export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
   const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(() => {

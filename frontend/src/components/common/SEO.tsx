@@ -14,6 +14,14 @@ interface SEOProps {
 /**
  * SEO Component.
  * Injects metadata natively into the document head using React 19's Document Metadata Hoisting concept.
+ * 
+ * @component
+ * @param {SEOProps} props - The SEO configuration properties.
+ * @param {string} [props.title] - Optional title override.
+ * @param {string} [props.description] - Optional description override.
+ * @param {string} [props.image] - Optional OG image URL.
+ * @param {string} [props.url] - Optional canonical URL.
+ * @returns {ReactElement} The metadata fragment.
  */
 export const SEO = ({
   title,

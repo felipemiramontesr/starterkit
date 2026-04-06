@@ -30,6 +30,15 @@ const SectionSkeleton = () => (
   <div className="w-full h-80 bg-gray-900/20 animate-pulse rounded-3xl" />
 );
 
+/**
+ * LandingPage Component.
+ * The primary layout orchestrator for the bento-grid landing page.
+ * 
+ * @component
+ * @param {Object} props - Component properties.
+ * @param {boolean} props.isShifted - Whether the layout is shifted due to banners.
+ * @returns {ReactElement} The assembled landing page.
+ */
 const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
   const { t } = useTranslation();
 
@@ -109,6 +118,13 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
   );
 };
 
+/**
+ * Main Application Entry Point.
+ * Sets up routing, global providers, and shared UI overlays.
+ * 
+ * @component
+ * @returns {ReactElement} The root application element.
+ */
 function App() {
   const [isBannerVisible, setIsBannerVisible] = useState(false);
 

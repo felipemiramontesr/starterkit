@@ -3,9 +3,12 @@ import { Settings, ChevronLeft, Palette as PaletteIcon, Image as ImageIcon, Layo
 import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem';
 
 /**
- * DesignPanel - Professional Theme Customizer.
- * Relocated to the LEFT side, glassmorphism style.
+ * DesignPanel Component.
+ * Professional Theme Customizer located on the left side with glassmorphism style.
  * Fully reactive to the dynamic design engine.
+ * 
+ * @component
+ * @returns {ReactElement} The design orchestration panel.
  */
 export const DesignPanel = () => {
   const { palette, setPalette, bgType, setBgType, palettes } = useDesignSystem();
