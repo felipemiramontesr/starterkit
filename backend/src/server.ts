@@ -1,3 +1,8 @@
+/**
+ * @module Server
+ * @description Primary entry point for the Sentinel Backend.
+ * Orchestrates security middleware, lead capture logic, and system health checks.
+ */
 import express, { type Request, type Response } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -8,24 +13,43 @@ import { z } from 'zod';
 export const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware Defensivo
+// Defensive Middleware Stack
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+/**
+ * HealthCheck Request Schema.
+ * @interface
+ */
 interface HealthCheckBody {
+  /** The destination URL for connectivity validation */
   targetUrl: string;
 }
 
+/**
+ * HealthCheck Orchestration Results.
+ * @interface
+ */
 interface HealthCheckResponse {
+  /** The validated target destination */
   targetUrl: string;
+  /** Cryptographic SSL status of the target */
   isSslActive: boolean;
+  /** Latency measurements in milliseconds */
   responseTimeMs: number;
+  /** Standard HTTP response code */
   status: number;
 }
 
 /**
- * Health Check API Endpoint.
+ * System Health Check Diagnostic.
+ * Performs real-time connectivity and SSL validation for specified targets.
+ * 
+ * @route POST /api/health-check
+ * @param {Request} req - The Express request object containing the targetUrl.
+ * @param {Response} res - The Express response object.
+ * @returns {Promise<Response>} The diagnostic payload.
  */
 app.post('/api/health-check', async (req: Request, res: Response): Promise<Response> => {
   const body = req.body as HealthCheckBody;

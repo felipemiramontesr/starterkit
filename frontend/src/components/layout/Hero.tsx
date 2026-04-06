@@ -1,24 +1,36 @@
+/**
+ * @module Hero
+ * @description Cinematic entrance component for the landing page.
+ * Manages high-resolution assets and adaptive background rendering.
+ */
 import { type ReactElement } from 'react';
 import { useDesignSystem } from '../../hooks/useDesignSystem';
 
 /**
- * Interface defining the properties for the Hero component.
+ * HeroProps Interface.
+ * Defines the strict schema for the Hero component configuration.
+ * 
+ * @interface
  */
 interface HeroProps {
-  /** The main title of the landing page */
+  /** The primary brand slogan or title (e.g., 'PROJECT ALPHA') */
   title: string;
-  /** A brief description or subtitle */
+  /** High-impact subtitle or value proposition */
   subtitle: string;
-  /** Primary Call to Action button text */
+  /** Text label for the primary conversion button */
   ctaText: string;
-  /** Action handler when CTA is clicked */
+  /** Optional callback for handling call-to-action interactions */
   onCtaClick?: () => void;
 }
 
 /**
- * Hero component for the landing page.
- * Displays a prominent title, subtitle, and a call-to-action button.
- * Supports dynamic background types (Gradient vs Cinematic Image).
+ * Hero Component.
+ * The visual cornerstone of the landing page experience.
+ * Supports dynamic rendering modes (Atmospheric Gradient vs Cinematic Brand Image).
+ * 
+ * @component
+ * @param {HeroProps} props - The configuration properties.
+ * @returns {ReactElement} The rendered hero section.
  */
 export const Hero = ({
   title,

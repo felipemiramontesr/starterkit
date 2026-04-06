@@ -1,9 +1,19 @@
+/**
+ * @module DesignContext
+ * @description Core engine for the dynamic design system.
+ * Manages global CSS variables and theme persistence.
+ */
 import { useState, useEffect, ReactNode } from 'react';
 import { DesignContext, PALETTES, type Palette, type BgType } from './useDesignSystem';
 
 /**
- * DesignProvider - Professional Theme Context Provider.
- * Manages global CSS variables for dynamic themes across the application.
+ * DesignProvider Component.
+ * Orchestrates the injection of CSS variables into the document root
+ * and provides state management for themes and UI panels.
+ * 
+ * @param {Object} props - Component properties.
+ * @param {ReactNode} props.children - Child components to be wrapped.
+ * @returns {ReactElement} The design orchestration provider.
  */
 export const DesignProvider = ({ children }: { children: ReactNode }) => {
   const [palette, setPalette] = useState<Palette>(() => {

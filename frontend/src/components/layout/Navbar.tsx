@@ -7,9 +7,12 @@ import {
 import { useTranslation } from 'react-i18next';
 
 /**
- * Navbar component with fluid glassmorphism effect.
- * Stays transparent at the top and blurs on scroll to maintain readability.
- * Includes a language switcher for i18n support.
+ * Navbar Component.
+ * High-end navigation bar featuring fluid glassmorphism, 
+ * adaptive scroll behavior, and a premium liquid mobile menu.
+ * 
+ * @component
+ * @returns {ReactElement} The responsive navigation hub.
  */
 export const Navbar = (): ReactElement => {
   const { t, i18n } = useTranslation();

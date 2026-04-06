@@ -1,3 +1,8 @@
+/**
+ * @module useDesignSystem
+ * @description Type definitions and the primary hook for accessing the Design System state.
+ * This module defines the available palettes and the background behavior.
+ */
 import { createContext, useContext } from 'react';
 
 export type Palette = 'indigo' | 'emerald' | 'amber' | 'crimson' | 'slate';
