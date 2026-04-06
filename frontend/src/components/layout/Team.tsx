@@ -3,9 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Mail, Globe, ExternalLink } from 'lucide-react';
 
 /**
- * Team component - Human Trust.
- * Displays specialists with glassmorphism cards and professional social links.
- * Optimized with native lazy loading.
+ * Team Component.
+ * Human Trust - Displays specialists with glassmorphism cards and professional social links.
+ * Optimized with native lazy loading for high-performance profile image rendering.
+ * 
+ * @component
+ * @returns {ReactElement} The team showcase section.
  */
 const Team = (): ReactElement => {
   const { t } = useTranslation();

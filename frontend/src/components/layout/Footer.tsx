@@ -8,6 +8,13 @@ import { BUSINESS_CONFIG } from '../../config/business';
  * Footer Component.
  * Dynamic footer with social/contact links and legal links.
  */
+/**
+ * Footer Component.
+ * Professional footer with social links, legal information, and branding.
+ * 
+ * @component
+ * @returns {ReactElement} The site footer.
+ */
 export const Footer = (): ReactElement => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();

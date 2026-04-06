@@ -3,8 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Rocket, Users, Award, Zap } from 'lucide-react';
 
 /**
- * Stats component - Immediate authority through metrics.
- * Displays key achievements with an animated, futuristic look.
+ * Stats Component.
+ * Immediate authority through metrics - Displays key achievements with an animated, futuristic look.
+ * 
+ * @component
+ * @returns {ReactElement} The impact metrics section.
  */
 const Stats = (): ReactElement => {
   const { t } = useTranslation();

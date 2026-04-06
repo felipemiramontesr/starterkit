@@ -7,6 +7,16 @@ interface WhatsAppFloatingProps {
   isShifted: boolean;
 }
 
+/**
+ * WhatsAppFloating Component.
+ * Responsive floating action button for direct WhatsApp communication.
+ * Adapts its position based on the presence of other UI banners.
+ * 
+ * @component
+ * @param {WhatsAppFloatingProps} props - Component properties.
+ * @param {boolean} props.isShifted - Shift state for layout synchronization.
+ * @returns {ReactElement} The floating communication hub.
+ */
 export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactElement => {
   const { t } = useTranslation();
   const whatsappUrl = BUSINESS_CONFIG.whatsapp.getApiUrl();

@@ -3,9 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { ExternalLink, Layers, Smartphone, Palette, Code2 } from 'lucide-react';
 
 /**
- * Portfolio component - Bento Grid showcase.
- * Displays disruptive implementations with tilt and overlay effects.
- * Optimized with native lazy loading for images.
+ * Portfolio Component.
+ * Bento Grid showcase displaying disruptive implementations with tilt and overlay effects.
+ * Optimized with native lazy loading for high-performance image rendering.
+ * 
+ * @component
+ * @returns {ReactElement} The portfolio bento-grid section.
  */
 const Portfolio = (): ReactElement => {
   const { t } = useTranslation();

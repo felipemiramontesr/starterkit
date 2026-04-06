@@ -3,8 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Check, Zap, Shield, Crown } from 'lucide-react';
 
 /**
- * Pricing component - Commercial Clarity.
- * Displays tiered subscription/service levels with themed highlights.
+ * Pricing Component.
+ * Displays tiered subscription and service levels with themed highlights.
+ * 
+ * @component
+ * @returns {ReactElement} The pricing section.
  */
 const Pricing = (): ReactElement => {
   const { t } = useTranslation();

@@ -3,9 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Maximize2, Building2, Microchip, Coffee } from 'lucide-react';
 
 /**
- * Gallery component - Physical Infrastructure.
+ * Gallery Component.
  * Cinematic showcase of facilities with high-end hover effects.
- * Optimized with native lazy loading.
+ * Optimized with native lazy loading for high-performance image rendering.
+ * 
+ * @component
+ * @returns {ReactElement} The facility gallery section.
  */
 const Gallery = (): ReactElement => {
   const { t } = useTranslation();

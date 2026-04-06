@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 /**
  * TrustSection Component.
- * Displays a grid of trust indicators/logos with fade-in animation on render.
+ * Displays a grid of trust indicators and brand logos with fade-in animation on render.
+ * 
+ * @component
+ * @returns {ReactElement} The brand authority section.
  */
 export const TrustSection = (): ReactElement => {
   const { t } = useTranslation();

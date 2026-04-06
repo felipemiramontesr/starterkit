@@ -3,8 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Quote, Star } from 'lucide-react';
 
 /**
- * Testimonials component - Social Proof.
- * Displays client feedback in a glassmorphism grid with star ratings.
+ * Testimonials Component.
+ * Social Proof - Displays client feedback in a glassmorphism grid with star ratings.
+ * 
+ * @component
+ * @returns {ReactElement} The client feedback section.
  */
 const Testimonials = (): ReactElement => {
   const { t } = useTranslation();

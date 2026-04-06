@@ -38,6 +38,14 @@ export default defineConfig([
       'jsdoc/require-description': 'warn',
       'jsdoc/require-param-description': 'warn',
       'jsdoc/require-returns-description': 'warn',
+      'jsdoc/no-types': 'off', // In TS we can omit or include them for TypeDoc
+      'jsdoc/check-tag-names': [
+        'warn',
+        {
+          definedTags: ['component', 'route', 'module', 'interface'],
+        },
+      ],
+      'jsdoc/tag-lines': ['warn', 'any', { startLines: 1 }],
     },
     languageOptions: {
       ecmaVersion: 2020,

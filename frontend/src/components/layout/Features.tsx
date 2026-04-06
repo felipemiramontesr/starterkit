@@ -2,6 +2,13 @@ import { type ReactElement } from 'react';
 import { Rocket, Target, Headphones } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * Features Component.
+ * Showcases the core capabilities and value propositions of the platform.
+ * 
+ * @component
+ * @returns {ReactElement} The features section.
+ */
 export const Features = (): ReactElement => {
   const { t } = useTranslation();
 

@@ -5,6 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/common/SEO';
 import { Footer } from '../components/layout/Footer';
 
+/**
+ * PoliciesPage Component.
+ * Professional compliance page displaying the Privacy Policy and Legal Terms.
+ * Features specialized SEO metadata for legal relevance (LFPDPPP).
+ * 
+ * @component
+ * @returns {ReactElement} The legal policies page.
+ */
 export const PoliciesPage = (): ReactElement => {
   const { t } = useTranslation();
 

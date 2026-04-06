@@ -3,8 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 /**
- * FAQ component - Friction Reduction.
+ * FAQ Component.
  * High-end accordion system to resolve common technical and commercial doubts.
+ * 
+ * @component
+ * @returns {ReactElement} The FAQ section.
  */
 const FAQ = (): ReactElement => {
   const { t } = useTranslation();

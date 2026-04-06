@@ -3,8 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Search, Brain, Code, Rocket } from 'lucide-react';
 
 /**
- * Process component - Operational Transparency.
- * Shows the methodology from consultancy to launch with a high-end stepper.
+ * Process Component.
+ * Operational Transparency - Shows the methodology from consultancy to launch with a high-end stepper.
+ * 
+ * @component
+ * @returns {ReactElement} The operational process section.
  */
 const Process = (): ReactElement => {
   const { t } = useTranslation();
