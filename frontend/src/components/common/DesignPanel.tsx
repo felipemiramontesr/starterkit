@@ -32,7 +32,7 @@ export const DesignPanel = () => {
 
   return (
     <div 
-      className={`fixed left-0 top-28 xl:top-1/2 -translate-y-1/2 z-[140] transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
+      className={`fixed left-0 top-32 xl:top-1/2 xl:-translate-y-1/2 z-[140] transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
         isOpen ? 'translate-x-0' : '-translate-x-[calc(100%-48px)]'
       }`}
     >
