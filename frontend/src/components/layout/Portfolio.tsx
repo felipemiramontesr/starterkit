@@ -14,6 +14,7 @@ const Portfolio = (): ReactElement => {
     {
       id: 1,
       category: 'web',
+      title: 'Global Commerce',
       icon: Code2,
       span: 'md:col-span-2 md:row-span-2',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
@@ -21,6 +22,7 @@ const Portfolio = (): ReactElement => {
     {
       id: 2,
       category: 'app',
+      title: 'Mobility Protocol',
       icon: Smartphone,
       span: 'md:col-span-1 md:row-span-1',
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400'
@@ -28,13 +30,15 @@ const Portfolio = (): ReactElement => {
     {
       id: 3,
       category: 'ux',
+      title: 'Intelligence Hub',
       icon: Layers,
       span: 'md:col-span-1 md:row-span-1',
-      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&q=80&w=400'
+      image: '/assets/portfolio/ux-strategy.png'
     },
     {
       id: 4,
       category: 'brand',
+      title: 'Brand DNA',
       icon: Palette,
       span: 'md:col-span-2 md:row-span-1',
       image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800'
@@ -81,7 +85,7 @@ const Portfolio = (): ReactElement => {
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-white group-hover:translate-x-2 transition-transform duration-300">
-                      Project Alpha {project.id}
+                      {project.title}
                     </h3>
                   </div>
                   
