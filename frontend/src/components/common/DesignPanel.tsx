@@ -31,11 +31,12 @@ export const DesignPanel = () => {
   };
 
   return (
-    <div 
-      className={`fixed left-0 top-32 xl:top-1/2 xl:-translate-y-1/2 z-[140] transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
-        isOpen ? 'translate-x-0' : '-translate-x-[calc(100%-48px)]'
-      }`}
-    >
+    <div className="fixed top-[80px] bottom-0 left-0 z-[140] pointer-events-none flex items-center">
+      <div 
+        className={`pointer-events-auto transition-all duration-500 ease-in-out flex flex-row-reverse items-center ${
+          isOpen ? 'translate-x-0' : '-translate-x-[calc(100%-48px)]'
+        }`}
+      >
       {/* Toggle Button - Now on the right side of the panel */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -131,5 +132,6 @@ export const DesignPanel = () => {
         </div>
       </div>
     </div>
-  );
+  </div>
+);
 };
