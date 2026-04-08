@@ -2,7 +2,7 @@
   "name": "starterkit-monorepo",
   "private": true,
   "type": "module",
-  "version": "0.14.8",
+  "version": "0.14.9",
   "workspaces": [
     "frontend",
     "backend"
@@ -10,16 +10,22 @@
   "scripts": {
     "prepare": "husky",
     "test": "npm run test --workspaces --if-present",
+    "test:all": "npm run test --workspaces && npm run test:e2e --workspace=frontend",
     "lint": "npm run lint --workspaces --if-present",
+    "lint:strict": "npm run lint --workspaces",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "commit:patch": "node scripts/commit.js patch",
     "commit:minor": "node scripts/commit.js minor",
     "commit:major": "node scripts/commit.js major",
-    "docs:build": "typedoc"
+    "docs:build": "typedoc",
+    "docs:generate": "rimraf docs/technical-docs && typedoc && echo 'Docs generated successfully.'"
   },
   "devDependencies": {
     "eslint-plugin-jsdoc": "^62.9.0",
     "husky": "^9.1.7",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "rimraf": "^6.1.3",
     "typedoc": "^0.28.18",
     "typedoc-material-theme": "^1.4.1",
     "typedoc-plugin-markdown": "^4.11.0",

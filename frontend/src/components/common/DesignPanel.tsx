@@ -131,9 +131,7 @@ export const DesignPanel = memo(() => {
 
             {/* Branding hint */}
             <div className="mt-8 border-t border-[var(--border-primary)] pt-4">
-              <p className="text-[10px] text-gray-600 italic">
-                {t('design_engine.hint')}
-              </p>
+              <p className="text-[10px] text-gray-600 italic">{t('design_engine.hint')}</p>
             </div>
           </div>
         </div>

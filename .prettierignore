@@ -1,0 +1,26 @@
+# Project Artifacts
+dist/
+build/
+coverage/
+.next/
+.turbo/
+
+# Static and Dynamic assets
+public/
+assets/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.ico
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Tooling and Config
+.husky/
+.vscode/
+.idea/
+.DS_Store
+*.log

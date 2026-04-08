@@ -20,6 +20,7 @@ app.use(express.json())
 
 /**
  * HealthCheck Request Schema.
+ *
  * @interface
  */
 interface HealthCheckBody {
@@ -29,6 +30,7 @@ interface HealthCheckBody {
 
 /**
  * HealthCheck Orchestration Results.
+ *
  * @interface
  */
 interface HealthCheckResponse {

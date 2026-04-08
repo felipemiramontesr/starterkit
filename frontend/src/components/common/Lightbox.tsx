@@ -101,7 +101,7 @@ export const Lightbox = ({
         className="relative flex w-full max-w-5xl flex-col items-center px-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="aspect-video relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_100px_rgba(0,0,0,0.8)]">
           <img
             src={images[currentIndex].image}
             alt={images[currentIndex].title || 'Gallery image'}
