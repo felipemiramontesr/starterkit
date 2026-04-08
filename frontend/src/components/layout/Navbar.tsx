@@ -79,13 +79,13 @@ export const Navbar = (): ReactElement => {
             <Shield className="h-8 w-8 text-[var(--primary)] transition-transform group-hover:rotate-12" />
             <span className="text-2xl font-bold tracking-tight text-white">
               {t('hero.title')}
-              <span className="text-[var(--primary)]">.</span>
+              <span className="text-[var(--primary)] leading-none">.</span>
             </span>
           </div>
 
           <div className="hidden items-center space-x-8 xl:flex">
             {/* Nav Links */}
-            <div className="flex space-x-6">
+            <div className="flex space-x-5">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -100,7 +100,7 @@ export const Navbar = (): ReactElement => {
             {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
-              className="group flex items-center gap-2 rounded-full border border-gray-800 bg-gray-900/50 px-3 py-1.5 text-xs font-bold text-gray-300 transition-all hover:bg-gray-800 hover:text-white"
+              className="group flex items-center gap-2 rounded-full border border-gray-800 bg-gray-900/50 px-3 py-1.5 text-xs font-bold text-gray-300 outline-none transition-all hover:bg-gray-800 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-[var(--primary)]"
             >
               <Globe className="h-3.5 w-3.5 text-[var(--primary)] transition-transform duration-500 group-hover:rotate-180" />
               <span>{currentLang === 'es' ? 'EN' : 'ES'}</span>
@@ -111,7 +111,7 @@ export const Navbar = (): ReactElement => {
           <div className="flex items-center gap-4 xl:hidden">
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 rounded-md border border-gray-800 px-2 py-1 text-xs font-bold text-gray-300"
+              className="flex items-center gap-1.5 rounded-md border border-gray-800 px-2 py-1 text-xs font-bold text-gray-300 focus:outline-none"
             >
               <Globe className="h-3.5 w-3.5" />
               <span>{currentLang === 'es' ? 'EN' : 'ES'}</span>
