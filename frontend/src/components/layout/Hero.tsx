@@ -58,6 +58,7 @@ export const Hero = ({ title, subtitle, ctaText, onCtaClick }: HeroProps): React
           src="/assets/office-bg.png"
           alt="Office Background"
           className="h-full w-full object-cover brightness-[0.4] saturate-[0.8] filter"
+          fetchPriority="high"
         />
         {/* Adaptive Color Filter Overlay */}
         <div className="absolute inset-0 bg-[var(--primary)]/20 mix-blend-overlay backdrop-blur-[2px]" />

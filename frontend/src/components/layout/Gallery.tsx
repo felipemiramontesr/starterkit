@@ -22,28 +22,28 @@ const Gallery = (): ReactElement => {
         icon: Building2,
         span: 'md:col-span-2 md:row-span-1',
         image:
-          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1280&h=720',
       },
       {
         title: 'lab',
         icon: Microchip,
         span: 'md:col-span-1 md:row-span-1',
         image:
-          'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=400',
+          'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=1280&h=720',
       },
       {
         title: 'lounge',
         icon: Coffee,
         span: 'md:col-span-1 md:row-span-1',
         image:
-          'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=400',
+          'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1280&h=720',
       },
       {
         title: 'hq_detail',
         icon: Maximize2,
         span: 'md:col-span-2 md:row-span-1',
         image:
-          'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=1280&h=720',
       },
     ],
     []

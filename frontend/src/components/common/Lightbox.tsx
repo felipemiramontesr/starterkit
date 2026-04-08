@@ -96,16 +96,18 @@ export const Lightbox = ({
         <ChevronRight className="h-8 w-8" />
       </button>
 
-      {/* Image Container */}
+      {/* Image Container with Fixed 16:9 Aspect Ratio */}
       <div
-        className="relative flex max-h-[85vh] max-w-[90vw] flex-col items-center"
+        className="relative flex w-full max-w-5xl flex-col items-center px-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <img
-          src={images[currentIndex].image}
-          alt={images[currentIndex].title || 'Gallery image'}
-          className="animate-fade-in-up md:animate-scale-in max-h-full max-w-full rounded-2xl border border-white/10 object-contain shadow-[0_0_100px_rgba(0,0,0,0.8)]"
-        />
+        <div className="aspect-video relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+          <img
+            src={images[currentIndex].image}
+            alt={images[currentIndex].title || 'Gallery image'}
+            className="animate-fade-in-up md:animate-scale-in h-full w-full object-cover"
+          />
+        </div>
 
         {/* Caption Container */}
         <div className="mt-8 flex flex-col items-center gap-2 text-center">
