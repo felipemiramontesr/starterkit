@@ -5,6 +5,7 @@ import {
   Palette as PaletteIcon,
   Image as ImageIcon,
   LayoutGrid,
+  Zap,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem'
@@ -105,26 +106,31 @@ export const DesignPanel = memo(() => {
                 <ImageIcon className="h-3 w-3" />
                 {t('design_engine.background')}
               </label>
-              <div className="flex rounded-xl border border-[var(--border-primary)] bg-gray-950 p-1">
+              <div className="relative flex rounded-xl border border-[var(--border-primary)] bg-gray-950 p-1">
+                {/* Sliding Background */}
+                <div
+                  className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-lg bg-gray-800 border border-gray-700 shadow-lg transition-transform duration-300 ease-out ${
+                    bgType === 'image' ? 'translate-x-[calc(100%+4px)]' : 'translate-x-0'
+                  }`}
+                />
+
                 <button
                   onClick={() => setBgType('gradient')}
-                  className={`flex flex-1 flex-col items-center gap-2 rounded-lg py-3 text-[10px] font-bold transition-all ${
-                    bgType === 'gradient'
-                      ? 'border border-gray-700 bg-gray-800 text-[var(--primary)] shadow-lg'
-                      : 'text-gray-500 hover:text-gray-400'
+                  className={`relative z-10 flex flex-1 items-center justify-center gap-2 rounded-lg py-3 text-[10px] font-bold transition-colors ${
+                    bgType === 'gradient' ? 'text-[var(--primary)]' : 'text-gray-500 hover:text-gray-400'
                   }`}
                 >
-                  <span>{t('design_engine.dynamic_gradient')}</span>
+                  <Zap className="h-3 w-3" />
+                  <span className="whitespace-nowrap">{t('design_engine.dynamic_gradient')}</span>
                 </button>
                 <button
                   onClick={() => setBgType('image')}
-                  className={`flex flex-1 flex-col items-center gap-2 rounded-lg py-3 text-[10px] font-bold transition-all ${
-                    bgType === 'image'
-                      ? 'border border-gray-700 bg-gray-800 text-[var(--primary)] shadow-lg'
-                      : 'text-gray-500 hover:text-gray-400'
+                  className={`relative z-10 flex flex-1 items-center justify-center gap-2 rounded-lg py-3 text-[10px] font-bold transition-colors ${
+                    bgType === 'image' ? 'text-[var(--primary)]' : 'text-gray-500 hover:text-gray-400'
                   }`}
                 >
-                  <span>{t('design_engine.office_cinematic')}</span>
+                  <ImageIcon className="h-3 w-3" />
+                  <span className="whitespace-nowrap">{t('design_engine.office_cinematic')}</span>
                 </button>
               </div>
             </div>

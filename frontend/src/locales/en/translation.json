@@ -202,8 +202,8 @@
     "title": "Design Engine",
     "palette": "Color Palette",
     "background": "Hero Background",
-    "dynamic_gradient": "Dynamic Gradient",
-    "office_cinematic": "Office Cinematic",
+    "dynamic_gradient": "Gradient",
+    "office_cinematic": "Office",
     "hint": "* Custom-tailored professional patterns.",
     "palettes": {
       "indigo": "Classic Indigo",

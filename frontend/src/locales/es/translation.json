@@ -209,8 +209,8 @@
     "title": "Motor de Diseño",
     "palette": "Paleta de Colores",
     "background": "Fondo del Hero",
-    "dynamic_gradient": "Degradado Dinámico",
-    "office_cinematic": "Oficina Cinematográfica",
+    "dynamic_gradient": "Degradado",
+    "office_cinematic": "Oficina",
     "hint": "* Patrones profesionales personalizados.",
     "palettes": {
       "indigo": "Índigo Clásico",
