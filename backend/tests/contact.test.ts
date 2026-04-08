@@ -27,7 +27,7 @@ describe('E2E Contact Form Workflow (Zod + FS)', () => {
     const response = await request(app).post('/api/contact').send({
       name: 'John Doe',
       email: 'john@cybersecurity.com',
-      subject: 'Inquiry',
+      phone: '1234567890',
       message: 'This is a strictly compliant payload with minimum 10 char limit.',
     })
 

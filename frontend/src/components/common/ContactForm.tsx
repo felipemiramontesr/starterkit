@@ -24,6 +24,7 @@ export const ContactForm = (): ReactElement => {
         email: z.string().email(t('contact.errors.email')),
         phone: z.string().min(10, t('contact.errors.phone')),
         message: z.string().min(10, t('contact.errors.message')),
+        website: z.string().optional(), // Honeypot field
       }),
     [t]
   )
@@ -58,6 +59,16 @@ export const ContactForm = (): ReactElement => {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* Honeypot field - Hidden from users */}
+        <div className="absolute h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+          <input
+            {...register('website')}
+            tabIndex={-1}
+            autoComplete="off"
+            placeholder="Your Website"
+          />
+        </div>
+
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {/* Nombre */}
           <div className="space-y-2">

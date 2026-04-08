@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://starterkit.felipemiramontesr.net/sitemap.xml

@@ -9,6 +9,7 @@ import cors from 'cors'
 import fs from 'fs/promises'
 import path from 'path'
 import { z } from 'zod'
+import { rateLimit } from 'express-rate-limit'
 
 export const app = express()
 const PORT = process.env.PORT || 3000
@@ -17,6 +18,21 @@ const PORT = process.env.PORT || 3000
 app.use(helmet())
 app.use(cors())
 app.use(express.json())
+
+/**
+ * Rate Limiting Configuration.
+ * Prevents DDoS and brute-force attacks on sensitive endpoints.
+ */
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 5 requests per window
+  message: {
+    success: false,
+    error: 'Demasiadas solicitudes desde esta IP. Por favor, intenta de nuevo en 15 minutos.',
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+})
 
 /**
  * HealthCheck Request Schema.
@@ -103,10 +119,12 @@ const contactSchema = z.object({
   name: z.string().min(2),
   /** Contact email address */
   email: z.string().email(),
-  /** Inquiry or message subject */
-  subject: z.string().min(5),
+  /** Contact phone number */
+  phone: z.string().min(8),
   /** Detailed message content */
   message: z.string().min(10),
+  /** Honeypot field (Invisible to humans) */
+  website: z.string().optional(),
 })
 
 const DATA_DIR = path.join(process.cwd(), 'data')
@@ -125,10 +143,17 @@ const LEADS_FILE = path.join(DATA_DIR, 'leads.json')
  * @param {Response} res - The Express response object.
  * @returns {Promise<Response>} 200 OK or 400/500 on validation/system error.
  */
-app.post('/api/contact', async (req: Request, res: Response): Promise<Response> => {
+app.post('/api/contact', contactLimiter, async (req: Request, res: Response): Promise<Response> => {
   try {
     // 1. Zod Zero Trust Validation
     const payload = contactSchema.parse(req.body)
+
+    // 2. Honeypot Validation: Bots usually fill all fields
+    if (payload.website) {
+      console.warn('⚠️ Intento de SPAM detectado via Honeypot. Operación abortada silenciosamente.')
+      return res.status(200).json({ success: true, message: 'Operación confirmada' }) as unknown as Response
+    }
+
     const newLead = { ...payload, timestamp: new Date().toISOString() }
 
     // 2. Persistencia Segura (I/O)
@@ -156,7 +181,7 @@ app.post('/api/contact', async (req: Request, res: Response): Promise<Response> 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          content: `🚀 **Nuevo Lead** en StarterKit\n> **${payload.name}** as ${payload.email}\n> Asunto: ${payload.subject}`,
+          content: `🚀 **Nuevo Lead** en StarterKit\n> **${payload.name}** (${payload.email})\n> Teléfono: ${payload.phone}`,
         }),
       }).catch((err) => console.error('Webhook notification falló silenciamente: ', err))
     } else {

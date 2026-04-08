@@ -1,5 +1,6 @@
 import { type ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
+import { BUSINESS_CONFIG } from '../../config/business'
 
 /**
  * Interface defining the properties for the SEO component.
@@ -52,6 +53,27 @@ export const SEO = ({
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={image} />
+
+      {/* JSON-LD Structured Data (Schema.org) */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: t('hero.title'),
+          url: url,
+          logo: image,
+          description: finalDescription,
+          sameAs: [
+            `https://wa.me/${BUSINESS_CONFIG.whatsapp.number}`,
+            // Add social media links here if available
+          ],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: BUSINESS_CONFIG.whatsapp.number,
+            contactType: 'customer service',
+          },
+        })}
+      </script>
     </>
   )
 }
