@@ -30,6 +30,7 @@ describe('Gallery Component', () => {
 
     expect(screen.getByText('facilities.hq')).toBeInTheDocument()
     expect(screen.getByText('facilities.lab')).toBeInTheDocument()
-    expect(screen.getByText('facilities.hq_detail')).toBeInTheDocument()
+    expect(screen.getByText('facilities.lounge')).toBeInTheDocument()
+    expect(screen.getByText('facilities.boardroom')).toBeInTheDocument()
   })
 })

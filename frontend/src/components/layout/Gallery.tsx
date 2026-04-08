@@ -39,7 +39,7 @@ const Gallery = (): ReactElement => {
           'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1280&h=720',
       },
       {
-        title: 'hq_detail',
+        title: 'boardroom',
         icon: Maximize2,
         span: 'md:col-span-2 md:row-span-1',
         image:
