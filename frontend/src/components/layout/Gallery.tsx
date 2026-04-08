@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from 'react'
+import { useState, useMemo, useCallback, type ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Maximize2, Building2, Microchip, Coffee } from 'lucide-react'
 import { Lightbox } from '../common/Lightbox'
@@ -15,36 +15,54 @@ const Gallery = (): ReactElement => {
   const { t } = useTranslation()
   const [activeImageIndex, setActiveImageIndex] = useState<number>(-1)
 
-  const items = [
-    {
-      title: 'hq',
-      icon: Building2,
-      span: 'md:col-span-2 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-      title: 'lab',
-      icon: Microchip,
-      span: 'md:col-span-1 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=400',
-    },
-    {
-      title: 'lounge',
-      icon: Coffee,
-      span: 'md:col-span-1 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=400',
-    },
-    {
-      title: 'hq_detail',
-      icon: Maximize2,
-      span: 'md:col-span-2 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=800',
-    },
-  ]
+  const items = useMemo(
+    () => [
+      {
+        title: 'hq',
+        icon: Building2,
+        span: 'md:col-span-2 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+      },
+      {
+        title: 'lab',
+        icon: Microchip,
+        span: 'md:col-span-1 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=400',
+      },
+      {
+        title: 'lounge',
+        icon: Coffee,
+        span: 'md:col-span-1 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=400',
+      },
+      {
+        title: 'hq_detail',
+        icon: Maximize2,
+        span: 'md:col-span-2 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&q=80&w=800',
+      },
+    ],
+    []
+  )
+
+  const lightboxImages = useMemo(
+    () => items.map((item) => ({ image: item.image, title: t(`facilities.${item.title}`) })),
+    [items, t]
+  )
+
+  const handleClose = useCallback(() => setActiveImageIndex(-1), [])
+  const handlePrev = useCallback(
+    () => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : items.length - 1)),
+    [items.length]
+  )
+  const handleNext = useCallback(
+    () => setActiveImageIndex((prev) => (prev < items.length - 1 ? prev + 1 : 0)),
+    [items.length]
+  )
 
   return (
     <section id="instalaciones" className="relative bg-black py-24">
@@ -98,11 +116,11 @@ const Gallery = (): ReactElement => {
       </div>
 
       <Lightbox
-        images={items.map((item) => ({ image: item.image, title: t(`facilities.${item.title}`) }))}
+        images={lightboxImages}
         currentIndex={activeImageIndex}
-        onClose={() => setActiveImageIndex(-1)}
-        onPrev={() => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : items.length - 1))}
-        onNext={() => setActiveImageIndex((prev) => (prev < items.length - 1 ? prev + 1 : 0))}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
       />
     </section>
   )

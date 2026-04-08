@@ -1,4 +1,4 @@
-import { useState, type ReactElement } from 'react'
+import { useState, useMemo, useCallback, type ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Layers, Smartphone, Palette, Code2, Maximize2 } from 'lucide-react'
 import { Lightbox } from '../common/Lightbox'
@@ -15,43 +15,58 @@ const Portfolio = (): ReactElement => {
   const { t } = useTranslation()
   const [activeImageIndex, setActiveImageIndex] = useState<number>(-1)
 
-  const projects = [
-    {
-      id: 1,
-      category: 'web',
-      title: 'Global Commerce',
-      icon: Code2,
-      span: 'md:col-span-2 md:row-span-2',
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-      id: 2,
-      category: 'app',
-      title: 'Mobility Protocol',
-      icon: Smartphone,
-      span: 'md:col-span-1 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400',
-    },
-    {
-      id: 3,
-      category: 'ux',
-      title: 'Intelligence Hub',
-      icon: Layers,
-      span: 'md:col-span-1 md:row-span-1',
-      image: '/assets/portfolio/ux-strategy.png',
-    },
-    {
-      id: 4,
-      category: 'brand',
-      title: 'Brand DNA',
-      icon: Palette,
-      span: 'md:col-span-2 md:row-span-1',
-      image:
-        'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
-    },
-  ]
+  const projects = useMemo(
+    () => [
+      {
+        id: 1,
+        category: 'web',
+        title: 'Global Commerce',
+        icon: Code2,
+        span: 'md:col-span-2 md:row-span-2',
+        image:
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+      },
+      {
+        id: 2,
+        category: 'app',
+        title: 'Mobility Protocol',
+        icon: Smartphone,
+        span: 'md:col-span-1 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=400',
+      },
+      {
+        id: 3,
+        category: 'ux',
+        title: 'Intelligence Hub',
+        icon: Layers,
+        span: 'md:col-span-1 md:row-span-1',
+        image: '/assets/portfolio/ux-strategy.png',
+      },
+      {
+        id: 4,
+        category: 'brand',
+        title: 'Brand DNA',
+        icon: Palette,
+        span: 'md:col-span-2 md:row-span-1',
+        image:
+          'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
+      },
+    ],
+    []
+  )
+
+  const lightboxImages = useMemo(() => projects.map((p) => ({ image: p.image, title: p.title })), [projects])
+
+  const handleClose = useCallback(() => setActiveImageIndex(-1), [])
+  const handlePrev = useCallback(
+    () => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1)),
+    [projects.length]
+  )
+  const handleNext = useCallback(
+    () => setActiveImageIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0)),
+    [projects.length]
+  )
 
   return (
     <section id="portfolio" className="relative bg-black py-24">
@@ -115,11 +130,11 @@ const Portfolio = (): ReactElement => {
       </div>
 
       <Lightbox
-        images={projects.map((p) => ({ image: p.image, title: p.title }))}
+        images={lightboxImages}
         currentIndex={activeImageIndex}
-        onClose={() => setActiveImageIndex(-1)}
-        onPrev={() => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1))}
-        onNext={() => setActiveImageIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0))}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
       />
     </section>
   )

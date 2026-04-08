@@ -39,11 +39,13 @@ export const Lightbox = ({
       if (e.key === 'ArrowRight') onNext()
     }
 
+    // Atomic body scroll lock
+    const originalStyle = window.getComputedStyle(document.body).overflow
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = originalStyle
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [currentIndex, onClose, onPrev, onNext])
