@@ -1,47 +1,45 @@
-import { type ReactElement } from 'react';
-import { MessageCircle } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { BUSINESS_CONFIG } from '../../config/business';
+import { type ReactElement } from 'react'
+import { MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { BUSINESS_CONFIG } from '../../config/business'
 
 interface WhatsAppFloatingProps {
-  isShifted: boolean;
+  isShifted: boolean
 }
 
 /**
  * WhatsAppFloating Component.
  * Responsive floating action button for direct WhatsApp communication.
  * Adapts its position based on the presence of other UI banners.
- * 
+ *
  * @component
  * @param {WhatsAppFloatingProps} props - Component properties.
  * @param {boolean} props.isShifted - Shift state for layout synchronization.
  * @returns {ReactElement} The floating communication hub.
  */
 export const WhatsAppFloating = ({ isShifted }: WhatsAppFloatingProps): ReactElement => {
-  const { t } = useTranslation();
-  const whatsappUrl = BUSINESS_CONFIG.whatsapp.getApiUrl();
+  const { t } = useTranslation()
+  const whatsappUrl = BUSINESS_CONFIG.whatsapp.getApiUrl()
 
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group fixed z-[100] h-16 flex items-center justify-center bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-[0_0_30px_var(--primary-shadow)] transition-all duration-500 ease-in-out transform hover:scale-105 active:scale-95 overflow-hidden w-16 hover:w-[240px] px-0 hover:px-8 ${
-        isShifted 
-          ? 'bottom-[200px] md:bottom-[160px] right-6 md:right-[40px]' 
-          : 'bottom-6 right-6'
+      className={`group fixed z-[100] flex h-16 w-16 transform items-center justify-center overflow-hidden rounded-full bg-emerald-500 px-0 text-white shadow-[0_0_30px_var(--primary-shadow)] transition-all duration-500 ease-in-out hover:w-[240px] hover:scale-105 hover:bg-emerald-400 hover:px-8 active:scale-95 ${
+        isShifted ? 'right-6 bottom-[200px] md:right-[40px] md:bottom-[160px]' : 'right-6 bottom-6'
       }`}
       aria-label={t('whatsapp.label')}
     >
       <div className="flex items-center justify-center whitespace-nowrap">
         {/* Texto que se revela */}
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out font-bold text-base pointer-events-none group-hover:mr-3">
+        <span className="pointer-events-none max-w-0 overflow-hidden text-base font-bold opacity-0 transition-all duration-500 ease-in-out group-hover:mr-3 group-hover:max-w-xs group-hover:opacity-100">
           {t('whatsapp.help')}
         </span>
-        
+
         {/* Icono a la derecha */}
-        <MessageCircle className="w-8 h-8 fill-current shrink-0" />
+        <MessageCircle className="h-8 w-8 shrink-0 fill-current" />
       </div>
     </a>
-  );
-};
+  )
+}

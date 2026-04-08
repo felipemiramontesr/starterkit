@@ -1,70 +1,73 @@
-import { useState, useEffect, type ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { Cookie } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect, type ReactElement } from 'react'
+import { Link } from 'react-router-dom'
+import { Cookie } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface CookieBannerProps {
-  onVisibilityChange: (visible: boolean) => void;
+  onVisibilityChange: (visible: boolean) => void
 }
 
 /**
  * CookieBanner Component.
  * Displays a professional GDPR-compliant cookie consent banner.
  * Communicates its visibility state to parent components for layout adjustments.
- * 
+ *
  * @component
  * @param {CookieBannerProps} props - Component properties.
  * @param {(visible: boolean) => void} props.onVisibilityChange - Callback to notify parent of visibility state.
  * @returns {ReactElement | null} The rendered banner or null if already accepted.
  */
 export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return !localStorage.getItem('cookies-accepted');
-  });
+    if (typeof window === 'undefined') return false
+    return !localStorage.getItem('cookies-accepted')
+  })
 
   useEffect(() => {
-    onVisibilityChange(isVisible);
-  }, [isVisible, onVisibilityChange]);
+    onVisibilityChange(isVisible)
+  }, [isVisible, onVisibilityChange])
 
   const handleAccept = () => {
-    localStorage.setItem('cookies-accepted', 'true');
-    setIsVisible(false);
-  };
+    localStorage.setItem('cookies-accepted', 'true')
+    setIsVisible(false)
+  }
 
-  if (!isVisible) return null;
+  if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[130] px-4 md:px-[40px] pb-4 animate-fade-in-up">
-      <div className="w-full bg-gray-900/90 backdrop-blur-xl border border-gray-800 p-6 rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+    <div className="animate-fade-in-up fixed right-0 bottom-0 left-0 z-[130] px-4 pb-4 md:px-[40px]">
+      <div className="flex w-full flex-col items-center justify-between gap-6 rounded-2xl border border-gray-800 bg-gray-900/90 p-6 shadow-2xl backdrop-blur-xl md:flex-row">
         <div className="flex items-center gap-4 text-left">
-          <div className="bg-[var(--primary)]/20 p-3 rounded-full shrink-0">
-            <Cookie className="w-6 h-6 text-[var(--primary)]" />
+          <div className="shrink-0 rounded-full bg-[var(--primary)]/20 p-3">
+            <Cookie className="h-6 w-6 text-[var(--primary)]" />
           </div>
           <div>
-            <h4 className="text-white font-bold text-lg">{t('cookies.title')}</h4>
-            <p className="text-gray-400 text-sm leading-relaxed whitespace-normal text-left">
+            <h4 className="text-lg font-bold text-white">{t('cookies.title')}</h4>
+            <p className="text-left text-sm leading-relaxed whitespace-normal text-gray-400">
               {t('cookies.text')}{' '}
-              <Link to="/politicas" className="text-[var(--primary)]">{t('cookies.link')}</Link>.
+              <Link to="/politicas" className="text-[var(--primary)]">
+                {t('cookies.link')}
+              </Link>
+              .
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 w-full md:w-auto shrink-0">
+        <div className="flex w-full shrink-0 items-center gap-3 md:w-auto">
           <button
             onClick={handleAccept}
-            className="flex-1 md:flex-none px-8 py-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white font-bold rounded-xl transition-all shadow-lg shadow-[var(--primary-shadow)] active:scale-95"
+            className="flex-1 rounded-xl bg-[var(--primary)] px-8 py-3 font-bold text-white shadow-[var(--primary-shadow)] shadow-lg transition-all hover:bg-[var(--primary-hover)] active:scale-95 md:flex-none"
           >
             {t('cookies.accept')}
           </button>
           <button
             onClick={() => setIsVisible(false)}
-            className="flex-1 md:flex-none px-8 py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold rounded-xl transition-all active:scale-95"
+            className="flex-1 rounded-xl bg-gray-800 px-8 py-3 font-bold text-gray-300 transition-all hover:bg-gray-700 active:scale-95 md:flex-none"
           >
             {t('cookies.reject')}
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

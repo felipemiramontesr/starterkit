@@ -3,19 +3,19 @@
  * @description Type definitions and the primary hook for accessing the Design System state.
  * This module defines the available palettes and the background behavior.
  */
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react'
 
-export type Palette = 'indigo' | 'emerald' | 'amber' | 'crimson' | 'slate';
-export type BgType = 'gradient' | 'image';
+export type Palette = 'indigo' | 'emerald' | 'amber' | 'crimson' | 'slate'
+export type BgType = 'gradient' | 'image'
 
 export interface PaletteColors {
-  primary: string;
-  primaryHover: string;
-  accent: string;
-  bgPrimary: string;
-  bgSecondary: string;
-  border: string;
-  shadow: string;
+  primary: string
+  primaryHover: string
+  accent: string
+  bgPrimary: string
+  bgSecondary: string
+  border: string
+  shadow: string
 }
 
 export const PALETTES: Record<Palette, PaletteColors> = {
@@ -64,31 +64,31 @@ export const PALETTES: Record<Palette, PaletteColors> = {
     border: '#1e293b',
     shadow: 'rgba(148, 163, 184, 0.1)',
   },
-};
-
-export interface DesignContextType {
-  palette: Palette;
-  setPalette: (p: Palette) => void;
-  bgType: BgType;
-  setBgType: (b: BgType) => void;
-  isPanelOpen: boolean;
-  setIsPanelOpen: (o: boolean) => void;
-  palettes: Palette[];
 }
 
-export const DesignContext = createContext<DesignContextType | undefined>(undefined);
+export interface DesignContextType {
+  palette: Palette
+  setPalette: (p: Palette) => void
+  bgType: BgType
+  setBgType: (b: BgType) => void
+  isPanelOpen: boolean
+  setIsPanelOpen: (o: boolean) => void
+  palettes: Palette[]
+}
+
+export const DesignContext = createContext<DesignContextType | undefined>(undefined)
 
 /**
  * useDesignSystem Hook.
  * Primary hook for accessing and manipulating the global design state.
- * 
+ *
  * @returns {DesignContextType} The current design system context value.
  * @throws {Error} If used outside of a DesignProvider.
  */
 export const useDesignSystem = () => {
-  const context = useContext(DesignContext);
+  const context = useContext(DesignContext)
   if (!context) {
-    throw new Error('useDesignSystem must be used within a DesignProvider');
+    throw new Error('useDesignSystem must be used within a DesignProvider')
   }
-  return context;
-};
+  return context
+}

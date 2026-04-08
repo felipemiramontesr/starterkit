@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom';
-import { vi } from 'vitest';
+import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 
 /**
  * Global mock for react-i18next.
- * Returns the key as the translated value, allowing tests to verify 
+ * Returns the key as the translated value, allowing tests to verify
  * that the correct i18n keys are being used in components.
  */
 vi.mock('react-i18next', () => ({
@@ -18,4 +18,4 @@ vi.mock('react-i18next', () => ({
     type: '3rdParty',
     init: () => {},
   },
-}));
+}))

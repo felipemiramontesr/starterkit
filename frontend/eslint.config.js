@@ -22,7 +22,7 @@ export default defineConfig([
     },
     rules: {
       'jsdoc/require-jsdoc': [
-        'warn',
+        'error',
         {
           publicOnly: true,
           require: {
@@ -35,17 +35,17 @@ export default defineConfig([
           },
         },
       ],
-      'jsdoc/require-description': 'warn',
-      'jsdoc/require-param-description': 'warn',
-      'jsdoc/require-returns-description': 'warn',
+      'jsdoc/require-description': 'error',
+      'jsdoc/require-param-description': 'error',
+      'jsdoc/require-returns-description': 'error',
       'jsdoc/no-types': 'off', // In TS we can omit or include them for TypeDoc
       'jsdoc/check-tag-names': [
-        'warn',
+        'error',
         {
           definedTags: ['component', 'route', 'module', 'interface'],
         },
       ],
-      'jsdoc/tag-lines': ['warn', 'any', { startLines: 1 }],
+      'jsdoc/tag-lines': ['error', 'any', { startLines: 1 }],
     },
     languageOptions: {
       ecmaVersion: 2020,

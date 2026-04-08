@@ -1,65 +1,78 @@
-import { type ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Quote, Star } from 'lucide-react';
+import { type ReactElement } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Quote, Star } from 'lucide-react'
 
 /**
  * Testimonials Component.
  * Social Proof - Displays client feedback in a glassmorphism grid with star ratings.
- * 
+ *
  * @component
  * @returns {ReactElement} The client feedback section.
  */
 const Testimonials = (): ReactElement => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const reviews = [
-    { name: 'Sarah Jenkins', role: 'CEO, TechFlow', text: 'Realmente transformaron nuestra visión en realidad. El diseño es impecable.' },
-    { name: 'David Smith', role: 'CTO, GlobalOps', text: 'Una infraestructura sólida y escalable. Superaron todas las expectativas técnicas.' },
-    { name: 'Elena Rossi', role: 'Director, DesignLab', text: 'La atención al detalle y el enfoque en la conversión son de otro mundo.' }
-  ];
+    {
+      name: 'Sarah Jenkins',
+      role: 'CEO, TechFlow',
+      text: 'Realmente transformaron nuestra visión en realidad. El diseño es impecable.',
+    },
+    {
+      name: 'David Smith',
+      role: 'CTO, GlobalOps',
+      text: 'Una infraestructura sólida y escalable. Superaron todas las expectativas técnicas.',
+    },
+    {
+      name: 'Elena Rossi',
+      role: 'Director, DesignLab',
+      text: 'La atención al detalle y el enfoque en la conversión son de otro mundo.',
+    },
+  ]
 
   return (
-    <section id="testimonios" className="py-24 bg-gray-900/50 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-sm font-black text-[var(--primary)] uppercase tracking-[0.3em] mb-4">
+    <section id="testimonios" className="relative bg-gray-900/50 py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-sm font-black tracking-[0.3em] text-[var(--primary)] uppercase">
             {t('testimonials.title')}
           </h2>
-          <p className="text-3xl md:text-4xl font-bold text-white max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-3xl font-bold text-white md:text-4xl">
             {t('testimonials.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {reviews.map((review, idx) => (
-            <div key={idx} className="group relative p-8 rounded-3xl bg-gray-900 border border-gray-800 hover:border-[var(--primary)]/30 transition-all duration-500 shadow-xl overflow-hidden hover:shadow-[var(--primary-shadow)]">
+            <div
+              key={idx}
+              className="group relative overflow-hidden rounded-3xl border border-gray-800 bg-gray-900 p-8 shadow-xl transition-all duration-500 hover:border-[var(--primary)]/30 hover:shadow-[var(--primary-shadow)]"
+            >
               {/* Quote Icon */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 text-[var(--primary)]/5 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                <Quote className="w-full h-full" />
+              <div className="absolute -top-4 -right-4 h-24 w-24 rotate-12 text-[var(--primary)]/5 transition-transform duration-700 group-hover:rotate-0">
+                <Quote className="h-full w-full" />
               </div>
 
               {/* Stars */}
-              <div className="flex gap-1 mb-6">
+              <div className="mb-6 flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[var(--primary)] text-[var(--primary)]" />
+                  <Star key={i} className="h-4 w-4 fill-[var(--primary)] text-[var(--primary)]" />
                 ))}
               </div>
 
-              <p className="text-gray-300 italic mb-8 relative z-10 leading-relaxed text-lg">
+              <p className="relative z-10 mb-8 text-lg leading-relaxed text-gray-300 italic">
                 "{review.text}"
               </p>
 
-              <div className="flex items-center gap-4 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] flex items-center justify-center text-black font-black uppercase text-sm">
+              <div className="relative z-10 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-hover)] text-sm font-black text-black uppercase">
                   {review.name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-bold group-hover:text-[var(--primary)] transition-colors">
+                  <h4 className="font-bold text-white transition-colors group-hover:text-[var(--primary)]">
                     {review.name}
                   </h4>
-                  <p className="text-xs text-gray-500 font-medium">
-                    {review.role}
-                  </p>
+                  <p className="text-xs font-medium text-gray-500">{review.role}</p>
                 </div>
               </div>
             </div>
@@ -67,7 +80,7 @@ const Testimonials = (): ReactElement => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Testimonials;
+export default Testimonials

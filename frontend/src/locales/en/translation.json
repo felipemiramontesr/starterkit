@@ -55,10 +55,19 @@
     "title": "Our Operational Process",
     "subtitle": "Agile methodology designed to minimize risk and maximize ROI.",
     "steps": {
-      "one": { "title": "Consultancy", "desc": "Feasibility analysis and technical scope definition." },
+      "one": {
+        "title": "Consultancy",
+        "desc": "Feasibility analysis and technical scope definition."
+      },
       "two": { "title": "Architecture", "desc": "Ecosystem structure and data flow design." },
-      "three": { "title": "Development", "desc": "Modular construction under international standards." },
-      "four": { "title": "Launch", "desc": "Optimized deployment and real-time performance monitoring." }
+      "three": {
+        "title": "Development",
+        "desc": "Modular construction under international standards."
+      },
+      "four": {
+        "title": "Launch",
+        "desc": "Optimized deployment and real-time performance monitoring."
+      }
     }
   },
   "team": {
@@ -90,17 +99,34 @@
     "most_popular": "Most Popular",
     "tiers": {
       "starter": { "name": "Essential", "price": "1,500", "desc": "Ideal for growing brands." },
-      "pro": { "name": "Professional", "price": "3,500", "desc": "The complete solution for companies." },
-      "enterprise": { "name": "Corporate", "price": "7,000", "desc": "Custom ecosystem without limits." }
+      "pro": {
+        "name": "Professional",
+        "price": "3,500",
+        "desc": "The complete solution for companies."
+      },
+      "enterprise": {
+        "name": "Corporate",
+        "price": "7,000",
+        "desc": "Custom ecosystem without limits."
+      }
     }
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Resolving your technical doubts before starting.",
     "items": {
-      "time": { "q": "How long does development take?", "a": "Depending on complexity, an average project takes between 2 to 4 weeks." },
-      "support": { "q": "Do you offer post-launch support?", "a": "Yes, we include constant technical maintenance and security updates." },
-      "seo": { "q": "Will my site be optimized for Google?", "a": "Absolutely. We implement native technical SEO in every line of code." }
+      "time": {
+        "q": "How long does development take?",
+        "a": "Depending on complexity, an average project takes between 2 to 4 weeks."
+      },
+      "support": {
+        "q": "Do you offer post-launch support?",
+        "a": "Yes, we include constant technical maintenance and security updates."
+      },
+      "seo": {
+        "q": "Will my site be optimized for Google?",
+        "a": "Absolutely. We implement native technical SEO in every line of code."
+      }
     }
   },
   "trust": {

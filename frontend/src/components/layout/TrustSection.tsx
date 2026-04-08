@@ -1,58 +1,63 @@
-import { useEffect, useState, type ReactElement } from 'react';
-import { Hexagon, Triangle, Circle, Square } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState, type ReactElement } from 'react'
+import { Hexagon, Triangle, Circle, Square } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 /**
  * TrustSection Component.
  * Displays a grid of trust indicators and brand logos with fade-in animation on render.
- * 
+ *
  * @component
  * @returns {ReactElement} The brand authority section.
  */
 export const TrustSection = (): ReactElement => {
-  const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation()
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = setTimeout(() => setIsVisible(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
 
   const trustItems = [
     { name: 'Global Brand', icon: Hexagon },
     { name: 'Tech Innovators', icon: Triangle },
     { name: 'Future Corp', icon: Circle },
     { name: 'Stellar Agency', icon: Square },
-  ];
+  ]
 
   return (
-    <section id="trust" className="w-full min-h-[60vh] flex flex-col justify-center py-24 bg-black text-gray-300 border-t border-gray-800 border-b scroll-mt-20 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--primary)]/10 via-black to-black pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
-        <h2 className="text-lg font-bold tracking-widest uppercase text-[var(--primary)] mb-12 animate-fade-in-up">
+    <section
+      id="trust"
+      className="relative flex min-h-[60vh] w-full scroll-mt-20 flex-col justify-center border-t border-b border-gray-800 bg-black py-24 text-gray-300"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--primary)]/10 via-black to-black" />
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="animate-fade-in-up mb-12 text-lg font-bold tracking-widest text-[var(--primary)] uppercase">
           {t('trust.heading')}
         </h2>
-        
-        <div 
-          className={`grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center transition-all duration-1000 transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+
+        <div
+          className={`grid transform grid-cols-2 items-center justify-center gap-8 transition-all duration-1000 md:grid-cols-4 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
           data-testid="trust-grid"
         >
           {trustItems.map((item, index) => {
-            const Icon = item.icon;
+            const Icon = item.icon
             return (
-              <div 
+              <div
                 key={index}
-                className="flex flex-col items-center justify-center p-10 border border-gray-800 rounded-2xl bg-gray-900/50 hover:bg-gray-800 transition-all cursor-pointer group shadow-lg hover:shadow-[var(--primary-shadow)] hover:-translate-y-2"
+                className="group flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-gray-800 bg-gray-900/50 p-10 shadow-lg transition-all hover:-translate-y-2 hover:bg-gray-800 hover:shadow-[var(--primary-shadow)]"
               >
-                <Icon className="w-16 h-16 text-gray-500 group-hover:text-[var(--primary)] mb-6 transition-colors duration-300" />
-                <span className="font-bold text-lg text-gray-400 group-hover:text-white transition-colors duration-300">{item.name}</span>
+                <Icon className="mb-6 h-16 w-16 text-gray-500 transition-colors duration-300 group-hover:text-[var(--primary)]" />
+                <span className="text-lg font-bold text-gray-400 transition-colors duration-300 group-hover:text-white">
+                  {item.name}
+                </span>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

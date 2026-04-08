@@ -55,10 +55,22 @@
     "title": "Nuestro Proceso Operativo",
     "subtitle": "Metodología ágil diseñada para minimizar riesgos y maximizar el ROI.",
     "steps": {
-      "one": { "title": "Consultoría", "desc": "Análisis de viabilidad y definición de alcances técnicos." },
-      "two": { "title": "Arquitectura", "desc": "Diseño de la estructura y flujo de datos del ecosistema." },
-      "three": { "title": "Desarrollo", "desc": "Construcción modular bajo estándares internacionales." },
-      "four": { "title": "Lanzamiento", "desc": "Despliegue optimizado y monitoreo de rendimiento real." }
+      "one": {
+        "title": "Consultoría",
+        "desc": "Análisis de viabilidad y definición de alcances técnicos."
+      },
+      "two": {
+        "title": "Arquitectura",
+        "desc": "Diseño de la estructura y flujo de datos del ecosistema."
+      },
+      "three": {
+        "title": "Desarrollo",
+        "desc": "Construcción modular bajo estándares internacionales."
+      },
+      "four": {
+        "title": "Lanzamiento",
+        "desc": "Despliegue optimizado y monitoreo de rendimiento real."
+      }
     }
   },
   "team": {
@@ -89,18 +101,39 @@
     "cta": "Empezar Ahora",
     "most_popular": "Más Popular",
     "tiers": {
-      "starter": { "name": "Esencial", "price": "1,500", "desc": "Ideal para marcas en crecimiento." },
-      "pro": { "name": "Profesional", "price": "3,500", "desc": "La solución completa para empresas." },
-      "enterprise": { "name": "Corporativo", "price": "7,000", "desc": "Ecosistema a medida sin límites." }
+      "starter": {
+        "name": "Esencial",
+        "price": "1,500",
+        "desc": "Ideal para marcas en crecimiento."
+      },
+      "pro": {
+        "name": "Profesional",
+        "price": "3,500",
+        "desc": "La solución completa para empresas."
+      },
+      "enterprise": {
+        "name": "Corporativo",
+        "price": "7,000",
+        "desc": "Ecosistema a medida sin límites."
+      }
     }
   },
   "faq": {
     "title": "Preguntas Frecuentes",
     "subtitle": "Resolviendo tus dudas técnicas antes de iniciar.",
     "items": {
-      "time": { "q": "¿Cuánto tiempo toma el desarrollo?", "a": "Dependiendo de la complejidad, un proyecto promedio toma entre 2 a 4 semanas." },
-      "support": { "q": "¿Ofrecen soporte post-lanzamiento?", "a": "Sí, incluimos mantenimiento técnico y actualizaciones de seguridad constantes." },
-      "seo": { "q": "¿Mi sitio estará optimizado para Google?", "a": "Absolutamente. Implementamos SEO técnico nativo en cada línea de código." }
+      "time": {
+        "q": "¿Cuánto tiempo toma el desarrollo?",
+        "a": "Dependiendo de la complejidad, un proyecto promedio toma entre 2 a 4 semanas."
+      },
+      "support": {
+        "q": "¿Ofrecen soporte post-lanzamiento?",
+        "a": "Sí, incluimos mantenimiento técnico y actualizaciones de seguridad constantes."
+      },
+      "seo": {
+        "q": "¿Mi sitio estará optimizado para Google?",
+        "a": "Absolutamente. Implementamos SEO técnico nativo en cada línea de código."
+      }
     }
   },
   "trust": {
