@@ -9,6 +9,7 @@ html {
   --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
   --animate-fade-in-premium: fadeInPremium 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scale-in: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
   /* Colores Dinámicos (Design Engine) */
   --color-primary: var(--primary, #4f46e5);
@@ -43,6 +44,10 @@ html {
   @keyframes fadeInPremium {
     0% { opacity: 0; transform: translateX(-15px) scale(0.98); }
     100% { opacity: 1; transform: translateX(0) scale(1); }
+  }
+  @keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
   }
 }
 

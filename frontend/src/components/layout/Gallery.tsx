@@ -1,6 +1,7 @@
-import { type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Maximize2, Building2, Microchip, Coffee } from 'lucide-react';
+import { Lightbox } from '../common/Lightbox';
 
 /**
  * Gallery Component.
@@ -12,6 +13,7 @@ import { Maximize2, Building2, Microchip, Coffee } from 'lucide-react';
  */
 const Gallery = (): ReactElement => {
   const { t } = useTranslation();
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(-1);
 
   const items = [
     { title: 'hq', icon: Building2, span: 'md:col-span-2 md:row-span-1', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800' },
@@ -36,7 +38,8 @@ const Gallery = (): ReactElement => {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className={`group relative overflow-hidden rounded-[2rem] border border-gray-900 transition-all duration-700 ${item.span}`}
+              onClick={() => setActiveImageIndex(idx)}
+              className={`group relative overflow-hidden rounded-[2rem] border border-gray-900 transition-all duration-700 cursor-zoom-in ${item.span}`}
             >
               {/* Image with Tilt/Scale Hover */}
               <img
@@ -69,6 +72,14 @@ const Gallery = (): ReactElement => {
           ))}
         </div>
       </div>
+
+      <Lightbox 
+        images={items.map(item => ({ image: item.image, title: t(`facilities.${item.title}`) }))}
+        currentIndex={activeImageIndex}
+        onClose={() => setActiveImageIndex(-1)}
+        onPrev={() => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : items.length - 1))}
+        onNext={() => setActiveImageIndex((prev) => (prev < items.length - 1 ? prev + 1 : 0))}
+      />
     </section>
   );
 };

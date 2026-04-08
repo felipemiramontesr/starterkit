@@ -1,6 +1,7 @@
-import { type ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ExternalLink, Layers, Smartphone, Palette, Code2 } from 'lucide-react';
+import { Layers, Smartphone, Palette, Code2, Maximize2 } from 'lucide-react';
+import { Lightbox } from '../common/Lightbox';
 
 /**
  * Portfolio Component.
@@ -12,6 +13,7 @@ import { ExternalLink, Layers, Smartphone, Palette, Code2 } from 'lucide-react';
  */
 const Portfolio = (): ReactElement => {
   const { t } = useTranslation();
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(-1);
 
   const projects = [
     {
@@ -64,7 +66,8 @@ const Portfolio = (): ReactElement => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className={`group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 transition-all duration-500 hover:border-[var(--primary)]/40 hover:shadow-[0_0_50px_-12px_var(--primary-shadow)] ${project.span}`}
+              onClick={() => setActiveImageIndex(project.id - 1)}
+              className={`group relative overflow-hidden rounded-3xl bg-gray-900 border border-gray-800 transition-all duration-500 hover:border-[var(--primary)]/40 hover:shadow-[0_0_50px_-12px_var(--primary-shadow)] cursor-zoom-in ${project.span}`}
             >
               {/* Image with Lazy Loading */}
               <img
@@ -92,8 +95,11 @@ const Portfolio = (): ReactElement => {
                     </h3>
                   </div>
                   
-                  <button className="p-3 rounded-full bg-white/10 text-white border border-white/20 hover:bg-[var(--primary)] hover:border-[var(--primary)] hover:text-white transition-all transform group-hover:rotate-12">
-                    <ExternalLink className="w-5 h-5" />
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setActiveImageIndex(project.id - 1); }}
+                    className="p-3 rounded-full bg-white/10 text-white border border-white/20 hover:bg-[var(--primary)] hover:border-[var(--primary)] hover:text-white transition-all transform group-hover:rotate-12"
+                  >
+                    <Maximize2 className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -101,6 +107,14 @@ const Portfolio = (): ReactElement => {
           ))}
         </div>
       </div>
+
+      <Lightbox 
+        images={projects.map(p => ({ image: p.image, title: p.title }))}
+        currentIndex={activeImageIndex}
+        onClose={() => setActiveImageIndex(-1)}
+        onPrev={() => setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : projects.length - 1))}
+        onNext={() => setActiveImageIndex((prev) => (prev < projects.length - 1 ? prev + 1 : 0))}
+      />
     </section>
   );
 };
