@@ -1,7 +1,7 @@
 import { useState, useEffect, type ReactElement } from 'react';
 import { 
   Menu, X, Shield, Globe, 
-  Home, Briefcase, Zap, LayoutGrid, Users, 
+  Home, Briefcase, Rocket, LayoutGrid, Zap, Users, 
   MessageSquare, Building2, CreditCard, HelpCircle, Send 
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -37,8 +37,9 @@ export const Navbar = (): ReactElement => {
   const navLinks = [
     { name: t('navbar.home'), href: '#home', icon: Home },
     { name: t('navbar.services'), href: '#servicios', icon: Briefcase },
-    { name: t('navbar.process'), href: '#proceso', icon: Zap },
+    { name: t('navbar.stats'), href: '#stats', icon: Rocket },
     { name: t('navbar.portfolio'), href: '#portfolio', icon: LayoutGrid },
+    { name: t('navbar.process'), href: '#proceso', icon: Zap },
     { name: t('navbar.team'), href: '#equipo', icon: Users },
     { name: t('navbar.testimonials'), href: '#testimonios', icon: MessageSquare },
     { name: t('navbar.facilities'), href: '#instalaciones', icon: Building2 },
