@@ -1,4 +1,4 @@
-import { useState, useEffect, type ReactElement } from 'react'
+import { useState, useEffect, memo, type ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import { Cookie } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -17,7 +17,7 @@ interface CookieBannerProps {
  * @param {(visible: boolean) => void} props.onVisibilityChange - Callback to notify parent of visibility state.
  * @returns {ReactElement | null} The rendered banner or null if already accepted.
  */
-export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
+export const CookieBanner = memo(({ onVisibilityChange }: CookieBannerProps): ReactElement | null => {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === 'undefined') return false
@@ -70,4 +70,6 @@ export const CookieBanner = ({ onVisibilityChange }: CookieBannerProps): ReactEl
       </div>
     </div>
   )
-}
+})
+
+CookieBanner.displayName = 'CookieBanner'

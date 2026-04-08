@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import {
   Settings,
   ChevronLeft,
@@ -16,7 +16,7 @@ import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem'
  * @component
  * @returns {ReactElement} The design orchestration panel.
  */
-export const DesignPanel = () => {
+export const DesignPanel = memo(() => {
   const { palette, setPalette, bgType, setBgType, palettes } = useDesignSystem()
   const [isOpen, setIsOpen] = useState(false)
 
@@ -146,4 +146,6 @@ export const DesignPanel = () => {
       </div>
     </div>
   )
-}
+})
+
+DesignPanel.displayName = 'DesignPanel'

@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense, type ReactElement } from 'react'
+import { useState, lazy, Suspense, memo, type ReactElement } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Navbar } from './components/layout/Navbar'
@@ -33,13 +33,14 @@ const SectionSkeleton = () => (
 /**
  * LandingPage Component.
  * The primary layout orchestrator for the bento-grid landing page.
+ * Memoized to prevent cascade re-renders from global overlays.
  *
  * @component
  * @param {object} props - Component properties.
  * @param {boolean} props.isShifted - Whether the layout is shifted due to banners.
  * @returns {ReactElement} The assembled landing page.
  */
-const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
+const LandingPage = memo(({ isShifted }: { isShifted: boolean }): ReactElement => {
   const { t } = useTranslation()
 
   return (
@@ -114,7 +115,9 @@ const LandingPage = ({ isShifted }: { isShifted: boolean }): ReactElement => {
       <WhatsAppFloating isShifted={isShifted} />
     </>
   )
-}
+})
+
+LandingPage.displayName = 'LandingPage'
 
 /**
  * Main Application Entry Point.
