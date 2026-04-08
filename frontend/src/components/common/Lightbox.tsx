@@ -31,6 +31,8 @@ export const Lightbox = ({
   onNext,
 }: LightboxProps): ReactElement | null => {
   useEffect(() => {
+    if (currentIndex === -1) return
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
       if (e.key === 'ArrowLeft') onPrev()
@@ -44,7 +46,7 @@ export const Lightbox = ({
       document.body.style.overflow = 'unset'
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [onClose, onPrev, onNext])
+  }, [currentIndex, onClose, onPrev, onNext])
 
   if (currentIndex === -1) return null
 
