@@ -6,6 +6,7 @@ import {
   Image as ImageIcon,
   LayoutGrid,
 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem'
 
 /**
@@ -18,15 +19,8 @@ import { useDesignSystem, type Palette } from '../../hooks/useDesignSystem'
  */
 export const DesignPanel = memo(() => {
   const { palette, setPalette, bgType, setBgType, palettes } = useDesignSystem()
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-
-  const paletteNames: Record<Palette, string> = {
-    indigo: 'Classic Indigo',
-    emerald: 'Cyber Emerald',
-    amber: 'Solar Amber',
-    crimson: 'Nordic Crimson',
-    slate: 'Monochrome Slate',
-  }
 
   const paletteColors: Record<Palette, string> = {
     indigo: '#4f46e5',
@@ -55,7 +49,7 @@ export const DesignPanel = memo(() => {
             <div className="flex flex-col items-center gap-2">
               <Settings className="animate-spin-slow h-6 w-6" />
               <span className="text-[10px] font-bold tracking-widest uppercase [writing-mode:vertical-lr]">
-                Design
+                {t('design_engine.title')}
               </span>
             </div>
           )}
@@ -67,7 +61,7 @@ export const DesignPanel = memo(() => {
             <div className="mb-8 flex items-center gap-3 border-b border-[var(--border-primary)] pb-4">
               <PaletteIcon className="h-5 w-5 text-[var(--primary)]" />
               <h3 className="text-sm font-bold tracking-widest text-white uppercase">
-                Design Engine
+                {t('design_engine.title')}
               </h3>
             </div>
 
@@ -75,7 +69,7 @@ export const DesignPanel = memo(() => {
             <div className="mb-10 space-y-4">
               <label className="flex items-center gap-2 text-[10px] font-bold tracking-wider text-gray-500 uppercase">
                 <LayoutGrid className="h-3 w-3" />
-                Color Palette
+                {t('design_engine.palette')}
               </label>
               <div className="grid grid-cols-1 gap-2">
                 {palettes.map((p) => (
@@ -95,7 +89,7 @@ export const DesignPanel = memo(() => {
                     <span
                       className={`text-xs font-medium ${palette === p ? 'text-white' : 'text-gray-400'}`}
                     >
-                      {paletteNames[p]}
+                      {t(`design_engine.palettes.${p}`)}
                     </span>
                     {palette === p && (
                       <div className="ml-auto h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--primary)]" />
@@ -109,7 +103,7 @@ export const DesignPanel = memo(() => {
             <div className="space-y-4">
               <label className="flex items-center gap-2 text-[10px] font-bold tracking-wider text-gray-500 uppercase">
                 <ImageIcon className="h-3 w-3" />
-                Hero Background
+                {t('design_engine.background')}
               </label>
               <div className="flex rounded-xl border border-[var(--border-primary)] bg-gray-950 p-1">
                 <button
@@ -120,7 +114,7 @@ export const DesignPanel = memo(() => {
                       : 'text-gray-500 hover:text-gray-400'
                   }`}
                 >
-                  <span>Dynamic Gradient</span>
+                  <span>{t('design_engine.dynamic_gradient')}</span>
                 </button>
                 <button
                   onClick={() => setBgType('image')}
@@ -130,7 +124,7 @@ export const DesignPanel = memo(() => {
                       : 'text-gray-500 hover:text-gray-400'
                   }`}
                 >
-                  <span>Office Cinematic</span>
+                  <span>{t('design_engine.office_cinematic')}</span>
                 </button>
               </div>
             </div>
@@ -138,7 +132,7 @@ export const DesignPanel = memo(() => {
             {/* Branding hint */}
             <div className="mt-8 border-t border-[var(--border-primary)] pt-4">
               <p className="text-[10px] text-gray-600 italic">
-                * Custom-tailored professional patterns.
+                {t('design_engine.hint')}
               </p>
             </div>
           </div>

@@ -44,11 +44,18 @@
     "title": "Elite Portfolio",
     "subtitle": "A select showcase of our most disruptive implementations.",
     "view_project": "View Project",
+    "view_details": "View Details",
     "items": {
       "web": "Web Platform",
       "app": "Mobile App",
       "ux": "UX Strategy",
       "brand": "Visual Identity"
+    },
+    "projects": {
+      "commerce": "Global Commerce",
+      "mobility": "Mobility Protocol",
+      "hub": "Intelligence Hub",
+      "dna": "Brand DNA"
     }
   },
   "process": {
@@ -90,13 +97,20 @@
     "subtitle": "Cutting-edge infrastructure for critical operations.",
     "hq": "Operations Headquarters",
     "lab": "Innovation Lab",
-    "lounge": "Collaboration Spaces"
+    "lounge": "Collaboration Spaces",
+    "boardroom": "Executive Boardroom"
   },
   "pricing": {
     "title": "Transparent Investment",
     "subtitle": "Scalable packages adapted to your business maturity.",
     "cta": "Get Started Now",
     "most_popular": "Most Popular",
+    "features": {
+      "design": "Responsive UI/UX Design",
+      "whatsapp": "WhatsApp Direct Integration",
+      "seo": "Core SEO Optimization",
+      "support": "24/7 Technical Support"
+    },
     "tiers": {
       "starter": { "name": "Essential", "price": "1,500", "desc": "Ideal for growing brands." },
       "pro": {
@@ -137,6 +151,12 @@
       "support": "24/7 Support",
       "security": "SSL Security",
       "guarantee": "Quality Guarantee"
+    },
+    "brands": {
+      "global": "Global Brand",
+      "tech": "Tech Innovators",
+      "future": "Future Corp",
+      "stellar": "Stellar Agency"
     }
   },
   "contact": {
@@ -177,6 +197,21 @@
   "whatsapp": {
     "help": "How can we help?",
     "label": "Chat on WhatsApp"
+  },
+  "design_engine": {
+    "title": "Design Engine",
+    "palette": "Color Palette",
+    "background": "Hero Background",
+    "dynamic_gradient": "Dynamic Gradient",
+    "office_cinematic": "Office Cinematic",
+    "hint": "* Custom-tailored professional patterns.",
+    "palettes": {
+      "indigo": "Classic Indigo",
+      "emerald": "Cyber Emerald",
+      "amber": "Solar Amber",
+      "crimson": "Nordic Crimson",
+      "slate": "Monochrome Slate"
+    }
   },
   "policies": {
     "back": "Back to site",

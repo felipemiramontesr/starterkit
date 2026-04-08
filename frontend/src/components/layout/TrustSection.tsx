@@ -19,10 +19,10 @@ export const TrustSection = (): ReactElement => {
   }, [])
 
   const trustItems = [
-    { name: 'Global Brand', icon: Hexagon },
-    { name: 'Tech Innovators', icon: Triangle },
-    { name: 'Future Corp', icon: Circle },
-    { name: 'Stellar Agency', icon: Square },
+    { id: 'global', icon: Hexagon },
+    { id: 'tech', icon: Triangle },
+    { id: 'future', icon: Circle },
+    { id: 'stellar', icon: Square },
   ]
 
   return (
@@ -51,7 +51,7 @@ export const TrustSection = (): ReactElement => {
               >
                 <Icon className="mb-6 h-16 w-16 text-gray-500 transition-colors duration-300 group-hover:text-[var(--primary)]" />
                 <span className="text-lg font-bold text-gray-400 transition-colors duration-300 group-hover:text-white">
-                  {item.name}
+                  {t(`trust.brands.${item.id}`)}
                 </span>
               </div>
             )

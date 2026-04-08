@@ -8,9 +8,10 @@ describe('TrustSection Component', () => {
     render(<TrustSection />)
     expect(screen.getByText('trust.heading')).toBeInTheDocument()
 
-    expect(screen.getByText('Global Brand')).toBeInTheDocument()
-    expect(screen.getByText('Tech Innovators')).toBeInTheDocument()
-    expect(screen.getByText('Future Corp')).toBeInTheDocument()
+    expect(screen.getByText('trust.brands.global')).toBeInTheDocument()
+    expect(screen.getByText('trust.brands.tech')).toBeInTheDocument()
+    expect(screen.getByText('trust.brands.future')).toBeInTheDocument()
+    expect(screen.getByText('trust.brands.stellar')).toBeInTheDocument()
   })
 
   it('triggers fade-in animation slightly after mount', () => {

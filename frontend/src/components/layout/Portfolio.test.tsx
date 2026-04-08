@@ -15,10 +15,10 @@ describe('Portfolio Component', () => {
     render(<Portfolio />)
 
     // Check for the new dynamic titles from V0.11.9
-    expect(screen.getByText('Global Commerce')).toBeInTheDocument()
-    expect(screen.getByText('Mobility Protocol')).toBeInTheDocument()
-    expect(screen.getByText('Intelligence Hub')).toBeInTheDocument()
-    expect(screen.getByText('Brand DNA')).toBeInTheDocument()
+    expect(screen.getByText('portfolio.projects.commerce')).toBeInTheDocument()
+    expect(screen.getByText('portfolio.projects.mobility')).toBeInTheDocument()
+    expect(screen.getByText('portfolio.projects.hub')).toBeInTheDocument()
+    expect(screen.getByText('portfolio.projects.dna')).toBeInTheDocument()
   })
 
   it('contains and renders all item categories with i18n keys', () => {

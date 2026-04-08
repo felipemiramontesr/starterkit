@@ -20,7 +20,7 @@ const Portfolio = (): ReactElement => {
       {
         id: 1,
         category: 'web',
-        title: 'Global Commerce',
+        titleKey: 'commerce',
         icon: Code2,
         span: 'md:col-span-2 md:row-span-2',
         image:
@@ -29,7 +29,7 @@ const Portfolio = (): ReactElement => {
       {
         id: 2,
         category: 'app',
-        title: 'Mobility Protocol',
+        titleKey: 'mobility',
         icon: Smartphone,
         span: 'md:col-span-1 md:row-span-1',
         image:
@@ -38,7 +38,7 @@ const Portfolio = (): ReactElement => {
       {
         id: 3,
         category: 'ux',
-        title: 'Intelligence Hub',
+        titleKey: 'hub',
         icon: Layers,
         span: 'md:col-span-1 md:row-span-1',
         image: '/assets/portfolio/ux-strategy.png',
@@ -46,7 +46,7 @@ const Portfolio = (): ReactElement => {
       {
         id: 4,
         category: 'brand',
-        title: 'Brand DNA',
+        titleKey: 'dna',
         icon: Palette,
         span: 'md:col-span-2 md:row-span-1',
         image:
@@ -56,7 +56,10 @@ const Portfolio = (): ReactElement => {
     []
   )
 
-  const lightboxImages = useMemo(() => projects.map((p) => ({ image: p.image, title: p.title })), [projects])
+  const lightboxImages = useMemo(
+    () => projects.map((p) => ({ image: p.image, title: t(`portfolio.projects.${p.titleKey}`) })),
+    [projects, t]
+  )
 
   const handleClose = useCallback(() => setActiveImageIndex(-1), [])
   const handlePrev = useCallback(
@@ -109,7 +112,7 @@ const Portfolio = (): ReactElement => {
                       </span>
                     </div>
                     <h3 className="text-xl font-bold text-white transition-transform duration-300 group-hover:translate-x-2">
-                      {project.title}
+                      {t(`portfolio.projects.${project.titleKey}`)}
                     </h3>
                   </div>
 

@@ -18,12 +18,7 @@ const Pricing = (): ReactElement => {
     { id: 'enterprise', icon: Crown, price: '7,000', popular: false },
   ]
 
-  const commonFeatures = [
-    'Diseño Responsive UI/UX',
-    'Integración WhatsApp Direct',
-    'Optimización SEO Core',
-    'Soporte Técnico 24/7',
-  ]
+  const commonFeatures = ['design', 'whatsapp', 'seo', 'support']
 
   return (
     <section id="precios" className="relative bg-gray-900/40 py-24">
@@ -77,7 +72,7 @@ const Pricing = (): ReactElement => {
                 {commonFeatures.map((feature, i) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
                     <Check className="h-4 w-4 flex-shrink-0 text-[var(--primary)]" />
-                    <span>{feature}</span>
+                    <span>{t(`pricing.features.${feature}`)}</span>
                   </li>
                 ))}
               </ul>

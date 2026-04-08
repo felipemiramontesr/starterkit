@@ -44,11 +44,18 @@
     "title": "Portafolio de Élite",
     "subtitle": "Una muestra selecta de nuestras implementaciones más disruptivas.",
     "view_project": "Ver Proyecto",
+    "view_details": "Ver Detalles",
     "items": {
       "web": "Plataforma Web",
       "app": "Aplicación Móvil",
       "ux": "Estrategia UX",
       "brand": "Identidad Visual"
+    },
+    "projects": {
+      "commerce": "Comercio Global",
+      "mobility": "Protocolo de Movilidad",
+      "hub": "Nodo de Inteligencia",
+      "dna": "ADN de Marca"
     }
   },
   "process": {
@@ -101,6 +108,12 @@
     "subtitle": "Paquetes escalables adaptados a la madurez de tu negocio.",
     "cta": "Empezar Ahora",
     "most_popular": "Más Popular",
+    "features": {
+      "design": "Diseño Responsive UI/UX",
+      "whatsapp": "Integración WhatsApp Direct",
+      "seo": "Optimización SEO Core",
+      "support": "Soporte Técnico 24/7"
+    },
     "tiers": {
       "starter": {
         "name": "Esencial",
@@ -145,6 +158,12 @@
       "support": "Soporte 24/7",
       "security": "Seguridad SSL",
       "guarantee": "Garantía de Calidad"
+    },
+    "brands": {
+      "global": "Marca Global",
+      "tech": "Tecnología Innovadora",
+      "future": "Corporativo Futuro",
+      "stellar": "Agencia Estelar"
     }
   },
   "contact": {
@@ -184,7 +203,22 @@
   },
   "whatsapp": {
     "help": "¿Podemos ayudarte?",
-    "label": "Chat on WhatsApp"
+    "label": "Chat en WhatsApp"
+  },
+  "design_engine": {
+    "title": "Motor de Diseño",
+    "palette": "Paleta de Colores",
+    "background": "Fondo del Hero",
+    "dynamic_gradient": "Degradado Dinámico",
+    "office_cinematic": "Oficina Cinematográfica",
+    "hint": "* Patrones profesionales personalizados.",
+    "palettes": {
+      "indigo": "Índigo Clásico",
+      "emerald": "Esmeralda Cíber",
+      "amber": "Ámbar Solar",
+      "crimson": "Carmesí Nórdico",
+      "slate": "Pizarra Monocromo"
+    }
   },
   "policies": {
     "back": "Regresar al sitio",

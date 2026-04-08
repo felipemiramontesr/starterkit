@@ -46,7 +46,7 @@ describe('DesignPanel Component', () => {
     // Open the panel first
     fireEvent.click(screen.getByLabelText('Toggle Design Panel'))
 
-    const emeraldButton = screen.getByText('Cyber Emerald')
+    const emeraldButton = screen.getByText('design_engine.palettes.emerald')
     fireEvent.click(emeraldButton)
 
     expect(mockSetPalette).toHaveBeenCalledWith('emerald')
@@ -56,7 +56,7 @@ describe('DesignPanel Component', () => {
     render(<DesignPanel />)
     fireEvent.click(screen.getByLabelText('Toggle Design Panel'))
 
-    const imageButton = screen.getByText('Office Cinematic')
+    const imageButton = screen.getByText('design_engine.office_cinematic')
     fireEvent.click(imageButton)
 
     expect(mockSetBgType).toHaveBeenCalledWith('image')
